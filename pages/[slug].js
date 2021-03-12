@@ -4,7 +4,6 @@ import PostPage from '../components/PostPage'
 import Container from '../components/Container'
 import ErrorPage from '../components/ErrorPage'
 import { getAllPosts, getPostBySlug } from '../lib/post'
-import markdownToHtml from '../lib/markdownToHtml'
 
 export async function getStaticPaths() {
   const posts = getAllPosts(['slug'])
@@ -30,7 +29,7 @@ export async function getStaticProps({ params }) {
     'coverImage',
   ])
 
-  const content = await markdownToHtml(post.content || '')
+  const content = post.content || ''
 
   return {
     props: {

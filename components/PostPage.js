@@ -1,6 +1,7 @@
+import ReactMarkdownWithHtml from 'react-markdown/with-html'
+
 import Header from './Header'
 import Footer from './Footer'
-
 import markdownStyles from '../styles/markdown.module.css'
 
 export default function PostPage(props) {
@@ -14,8 +15,13 @@ export default function PostPage(props) {
         <time className="block mt-4" dateTime={date}>{date}</time>
         <div
           className={markdownStyles['markdown']}
-          dangerouslySetInnerHTML={{ __html: content }}
-        />
+        >
+          <ReactMarkdownWithHtml
+            allowDangerousHtml
+          >
+            {content}
+          </ReactMarkdownWithHtml>
+        </div>
       </section>
       <Footer />
     </article>

@@ -1,7 +1,7 @@
 ---
 title: '被忽略的关键信息'
 date: '2020-05-13 16:29:00'
-coverImage: '../assets/hello-world/cover.jpg'
+coverImage: 'https://i.loli.net/2021/03/13/CDTgm2Lb5A9Y6wn.png'
 excerpt: '在前端领域内，框架及工具库的百花齐放，不仅提高了我们的日常工作效率，同时也为后来者提供了优秀的学习素材。通过优秀开源项目源码的阅读与学习，我们能够从中吸收最佳实践、框架设计思想、奇技淫巧等知识，并为我所用，助我升职加薪。'
 ---
 

@@ -1,4 +1,4 @@
-export default function Container (props) {
+export default function Container(props) {
   const { children } = props
   return (
     <article className="container mx-auto px-5">

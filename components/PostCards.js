@@ -11,8 +11,8 @@ function PostCard(props) {
           <h3 className="line-clamp-2 text-2xl font-bold mt-4">{title}</h3>
         </section>
       </Link>
-      <time dateTime={date}>{date}</time>
-      <p className="line-clamp-3">{excerpt}</p>
+      <time dateTime={date} className="block mt-1">{date}</time>
+      <p className="line-clamp-3 mt-2">{excerpt}</p>
     </section >
   )
 }

@@ -1,7 +1,7 @@
 ---
 title: '深入 float'
 date: '2015-03-09 13:34:45'
-coverImage: '../assets/hello-world/cover.jpg'
+coverImage: 'https://i.loli.net/2021/03/13/5k7QOKC9Hf3gIRm.jpg'
 excerpt: ''
 ---
 

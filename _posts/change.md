@@ -2,7 +2,7 @@
 title: '拥抱变化'
 date: '2015-03-09 13:34:45'
 excerpt: '眼见他起高楼，眼见他宴宾客，眼见他楼塌了 ——《桃花扇》'
-coverImage: '../assets/hello-world/cover.jpg'
+coverImage: 'https://i.loli.net/2021/03/13/b2EisZfCMD9YW18.png'
 ---
 
 <blockquote class="blockquote-center">

@@ -1,9 +1,14 @@
-import { useRouter } from 'next/router'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
+
 import PostPage from '../components/PostPage'
 import Container from '../components/Container'
 import ErrorPage from '../components/ErrorPage'
+
 import { getAllPosts, getPostBySlug } from '../lib/post'
+import markdownToHtml from '../lib/markdownToHtml'
+
+import 'highlight.js/styles/github.css'
 
 export async function getStaticPaths() {
   const posts = getAllPosts(['slug'])
@@ -29,7 +34,7 @@ export async function getStaticProps({ params }) {
     'coverImage',
   ])
 
-  const content = post.content || ''
+  const content = await markdownToHtml(post.content || '')
 
   return {
     props: {

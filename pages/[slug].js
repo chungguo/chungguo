@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
+import Header from '../components/Header'
 import PostPage from '../components/PostPage'
 import Container from '../components/Container'
 import ErrorPage from '../components/ErrorPage'
@@ -46,7 +47,6 @@ export async function getStaticProps({ params }) {
   }
 }
 
-
 export default function Post({ post, morePosts, preview }) {
   const router = useRouter()
 
@@ -54,19 +54,26 @@ export default function Post({ post, morePosts, preview }) {
     return <ErrorPage statusCode={404} />
   }
 
-  const { title, date } = post
+  const { title = '', date = '', excerpt = '', slug } = post
 
   return (
-    <Container>
-      <Head>
-        <title>{title}</title>
-        <meta property="og:image" content={post?.ogImage?.url} />
-      </Head>
-      <PostPage 
-        title={title}
-        date={date}
-        content={post.content}
-      />
-    </Container>
+    <>
+      <Header />
+      <Container>
+        <Head>
+          <title>{title}</title>
+          <meta property="og:type" content="article" />
+          <meta property="og:title" content={title} />
+          <meta property="og:image" content={post?.coverImage} />
+          <meta property="og:url" content={`https://chungguo.me/${slug}`} />
+          <meta property="og:description" content={excerpt} />
+        </Head>
+        <PostPage
+          title={title}
+          date={date}
+          content={post.content}
+        />
+      </Container>
+    </>
   )
 }

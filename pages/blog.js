@@ -27,11 +27,13 @@ export default function BlogIndex(props) {
   const [heroPost, ...otherPosts] = allPosts
 
   return (
-    <Container>
+    <>
       <Header />
-      <HeroPost {...heroPost} />
-      <PostCards posts={otherPosts} />
-      <Footer />
-    </Container>
+      <Container>
+        <HeroPost {...heroPost} />
+        <PostCards posts={otherPosts} />
+        <Footer />
+      </Container>
+    </>
   )
 }

@@ -7,12 +7,12 @@ function PostCard(props) {
     <section>
       <Link as={`/${slug}`} href="/[slug]">
         <section className="cursor-pointer">
-          <img src={coverImage} alt={title} className="object-cover rounded-3xl w-full h-64" />
-          <h3 className="line-clamp-2 text-2xl font-bold mt-4">{title}</h3>
+          <img src={coverImage} alt={title} className="object-cover rounded-3xl w-full h-64 bg-gray-200" />
+          <h3 className="line-clamp-1 text-2xl font-bold mt-4">{title}</h3>
         </section>
       </Link>
       <time dateTime={date} className="block mt-1">{date}</time>
-      <p className="line-clamp-3 mt-2">{excerpt}</p>
+      <p className="line-clamp-3 mt-2 text-gray-700">{excerpt}</p>
     </section >
   )
 }

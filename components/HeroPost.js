@@ -13,7 +13,7 @@ export default function HeroPost(props) {
     <section className="grid sm:grid-cols-1 md:grid-cols-2 gap-x-12 my-12">
       <Link as={`/${slug}`} href="/[slug]">
         <img
-          className="m-0 rounded-3xl cursor-pointer object-cover w-full h-80"
+          className="m-0 rounded-3xl cursor-pointer object-cover w-full h-80 bg-gray-200"
           src={coverImage}
           alt={title}
         />

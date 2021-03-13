@@ -1,3 +1,4 @@
+import Head from 'next/head' 
 import { getAllPosts } from '../lib/post'
 import Container from '../components/Container'
 import Header from '../components/Header'
@@ -28,6 +29,9 @@ export default function BlogIndex(props) {
 
   return (
     <>
+      <Head>
+        <title>chungguo</title>
+      </Head>
       <Header />
       <Container>
         <HeroPost {...heroPost} />

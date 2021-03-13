@@ -1,13 +1,13 @@
 import Link from 'next/link';
 
 function PostCard(props) {
-  const { slug, title, date, coverImage, excerpt } = props;
+  const { slug, title, date, cover, excerpt } = props;
 
   return (
     <section>
       <Link as={`/${slug}`} href="/[slug]">
         <section className="cursor-pointer">
-          <img src={coverImage} alt={title} className="object-cover rounded-3xl w-full h-64 bg-gray-200" />
+          <img src={cover} alt={title} className="object-cover rounded-3xl w-full h-64 bg-gray-200" />
           <h3 className="line-clamp-1 text-2xl font-bold mt-4">{title}</h3>
         </section>
       </Link>

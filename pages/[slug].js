@@ -32,7 +32,7 @@ export async function getStaticProps({ params }) {
     'date',
     'slug',
     'content',
-    'coverImage',
+    'cover',
   ])
 
   const content = await markdownToHtml(post.content || '')
@@ -64,7 +64,7 @@ export default function Post({ post, morePosts, preview }) {
           <title>{title}</title>
           <meta property="og:type" content="article" />
           <meta property="og:title" content={title} />
-          <meta property="og:image" content={post?.coverImage} />
+          <meta property="og:image" content={post?.cover} />
           <meta property="og:url" content={`https://chungguo.me/${slug}`} />
           <meta property="og:description" content={excerpt} />
         </Head>

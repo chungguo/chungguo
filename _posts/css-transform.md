@@ -1,7 +1,7 @@
 ---
 title: 'CSS 变换背后的线性变换原理'
 date: '2020-03-26 18:29:00'
-coverImage: 'https://i.loli.net/2021/03/13/eF86JpDNhydEa7x.png'
+cover: '/assets/blog/css-transform/cover.png'
 excerpt: ''
 ---
 

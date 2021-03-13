@@ -3,7 +3,7 @@ import Link from 'next/link';
 export default function HeroPost(props) {
   const {
     title,
-    coverImage,
+    cover,
     date,
     excerpt,
     slug,
@@ -14,7 +14,7 @@ export default function HeroPost(props) {
       <Link as={`/${slug}`} href="/[slug]">
         <img
           className="m-0 rounded-3xl cursor-pointer object-cover w-full h-80 bg-gray-200"
-          src={coverImage}
+          src={cover}
           alt={title}
         />
       </Link>

@@ -1,8 +1,8 @@
 ---
-title: '深入 float'
+title: '如何理解 css 中的 float 属性'
 date: '2015-03-09 13:34:45'
 cover: 'assets/blog/css-float/cover.png'
-excerpt: ''
+excerpt: '从浅层面简单介绍 css 的 float 属性'
 ---
 
 ## 一、两种观念

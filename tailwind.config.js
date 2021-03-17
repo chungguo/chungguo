@@ -1,4 +1,4 @@
-const { teal } = require('tailwindcss/colors')
+const { indigo } = require('tailwindcss/colors')
 
 module.exports = {
   corePlugins: {
@@ -14,7 +14,7 @@ module.exports = {
     extend: {
       colors: {
         black: '#121212',
-        teal,
+        indigo,
       },
       lineHeight: {
         tight: 1.2,

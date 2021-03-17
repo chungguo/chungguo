@@ -25,9 +25,21 @@
 .markdown table td, .markdown table th {
   @apply px-4
 }
+.markdown a {
+  position: 'relative';
+  @apply text-indigo-600 px-1
+}
+
+.markdown pre {
+  @apply border p-4 bg-gray-100
+}
 
 .markdown code {
   @apply px-2 bg-gray-100 rounded-lg
+}
+
+.markdown pre code {
+  @apply rounded-none
 }
 
 .markdown p,
@@ -38,10 +50,5 @@
 }
 
 .markdown blockquote {
-  @apply pl-4 relative
-}
-
-.markdown blockquote::before {
-  content: '';
-  @apply block absolute top-0 left-0 z-40 bg-red-400 w-1 h-full transform scale-y-75
+  @apply flex text-gray-400
 }

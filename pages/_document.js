@@ -9,7 +9,7 @@ class MyDocument extends Document {
         <Head>
           <meta char-set="UTF-8" />
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
-          <link rel="canonical" href="https://chungguo.me/" dataBaseprotocol="https:" dataBasehost="chungguo.me" />
+          <link rel="canonical" href="https://chungguo.me/" data-baseprotocol="https:" data-basehost="chungguo.me" />
           <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png" />
           <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png" />
           <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png" />

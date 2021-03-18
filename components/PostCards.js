@@ -8,7 +8,7 @@ function PostCard(props) {
       <Link as={`/${slug}`} href="/[slug]">
         <section className="cursor-pointer">
           <img src={cover} alt={title} className="object-cover rounded-3xl w-full h-64 bg-gray-200" />
-          <h3 className="line-clamp-1 text-2xl font-bold mt-4">{title}</h3>
+          <h3 className="line-clamp-1 text-2xl font-semibold mt-4">{title}</h3>
         </section>
       </Link>
       <time dateTime={date} className="block mt-1">{date}</time>

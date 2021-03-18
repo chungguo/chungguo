@@ -1,9 +1,30 @@
 @tailwind base;
-
-/* Start purging... */
 @tailwind components;
-/* Stop purging. */
 
-/* Start purging... */
+.footnotes hr {
+  display: none
+}
+
+.footnotes ol {
+  @apply text-gray-600 text-sm;
+}
+
+.footnotes::before {
+  content: '注解';
+  @apply text-gray-600 font-semibold;
+}
+
+ol, ul {
+  @apply pl-6;
+  list-style-position: inside;
+}
+
+ul li{
+  list-style: disc;
+}
+
+ol li{
+  list-style: decimal
+}
+
 @tailwind utilities;
-/* Stop purging. */

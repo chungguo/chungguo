@@ -19,7 +19,7 @@ export default function Index() {
         <Link href="/blog">
           <article className="cursor-pointer items-center justify-center text-center -mt-32">
             <img className="w-28 lg:w-40 md:32 inline rounded-full bg-gray-200" src="./chungguo.jpg" alt="avatar" />
-            <h2 className="text-base font-bold py-4 lg:text-4xl md:text-2xl">
+            <h2 className="text-base font-semibold py-4 lg:text-4xl md:text-2xl">
               <span className="text-indigo-600">CODER, </span>AMATEUR PHOTOGRAPHER.
             </h2>
           </article>

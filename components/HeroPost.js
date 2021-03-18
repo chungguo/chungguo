@@ -20,7 +20,7 @@ export default function HeroPost(props) {
       </Link>
       <div className="mt-4">
         <Link as={`/${slug}`} href="/[slug]">
-          <h3 className="lg:text-5xl md:text-3xl text-3xl font-bold cursor-pointer">{title}</h3>
+          <h3 className="lg:text-5xl md:text-3xl text-3xl font-semibold cursor-pointer">{title}</h3>
         </Link>
         <time className="mt-4 block" dateTime={date}>{date}</time>
         <p className="mt-4 text-gray-700 line-clamp-5">{excerpt}</p>

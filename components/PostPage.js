@@ -7,8 +7,8 @@ export default function PostPage(props) {
 
   return (
     <article className="py-4">
-      <h1 className="text-3xl font-bold">{title}</h1>
-      <time className="block mt-4" dateTime={date}>{date}</time>
+      <h1 className="text-3xl font-semibold">{title}</h1>
+      <time className="block mt-4 text-gray-500 text-base" dateTime={date}>{date}</time>
       <div
         className={markdownStyles['markdown']}
         dangerouslySetInnerHTML={{ __html: content }}

@@ -5,23 +5,6 @@ cover: '/assets/blog/css-transform/cover.png'
 excerpt: '在看似简单，并被我们习以为常的 css 变换背后，隐藏着复杂的矩阵变换，本文尝试解释其中的数学原理'
 ---
 
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      processEscapes: true
-    }
-  };
-
-  (function () {
-    var script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js';
-    script.async = true;
-    document.head.appendChild(script);
-  })();
-</script>
-
-
 `CSS` 的 `transform` 属性允许开发者无需借助 `SVG`、`Canvas`、`Javascript` 等方式，仅仅通过 `CSS` 便能以尽可能简单的方式实现对指定标签元素的旋转（`rotate`）、缩放（`scale`）、倾斜（`skew`）、平移（`translate`）等操作，大大丰富了前端页面布局及动画效果的可能性。但更深层次而言，在这些直观易懂的属性背后却是更为高阶的 `matrix` 属性发挥着作用。如果能够正确理解 `matrix` 属性及其背后的线性变换原理，那么再回头看 `matrix` 属性时，便会有拨开云雾见青天的快感。
 
 ![transform 示例](https://i.loli.net/2020/05/16/vUrwnIYM1T7Qqdg.png)
@@ -85,11 +68,11 @@ h2 {
 
 而所谓空间，我们最熟悉的莫过于每天生活的这个三维空间（牛顿绝对时空观）。在这个空间中，有草木虫鱼，有人及人类活动，有位置坐标，以及看不见摸不着的空间中每个个体之间的联系，且这个三维空间中的一切在指定参考系下，都按照一定的自然规律运转。所以类似的，对于向量空间，也称线性空间，我们可以这样简单的类比理解：向量空间中的任何一个对象，在数学上通过选取基（参考系）和坐标的办法，都可以表达为向量的形式，而可加性和数乘性是这个空间的「自然规律」，线性变换便是发生在向量空间中符合「自然规律」的「运动」。
 
-## 线性变换
+## 3. 线性变换
 
 线性空间（向量空间）中对象的「运动」被称作线性变换。换言之，线性空间中的任意一点的运动都可以用线性变换来完成，而点汇聚成线，线展开成面，面旋转成体。从而，我们可以说线性变换描述了线性空间中对象的变换，进而实现图形图像的变换操作。
 
-### 线性
+### 3.1 线性
 
 「线性」直观印象可能就是一条直线，对于如何描述直线，我们初中就学过——一次函数，不失一般性，形如：$y = kx + b$。其中$k$，$b$是常数且 $k \neq 0$ 。但是，从代数层面上而言，线性要满足以下两条性质。
 
@@ -111,7 +94,7 @@ $$ af(x) = a(kx + b) = akx + ab $$
 
 显然，当$ a \neq 1$ 时，不满足数乘性。故而，正比例函数 $ y= kx $ 才是最简单的线性函数。
 
-## 变换
+## 4. 变换
 
 变换（transformation）指的是空间中从一个点/元素到另一个点/元素的运动，但它不是微积分中的连续性的**运动**，而是瞬间发生的变化。以我们熟知的函数做类比，函数接收一个输入，得到一个输出。类似的，变换亦如此。之所以没有使用「函数」的概念，也许正是想让我们抛开代数式的理解方式，以运动的眼光看变换。
 
@@ -119,12 +102,11 @@ $$ af(x) = a(kx + b) = akx + ab $$
 
 至此，一言以蔽之，**向量是线性空间的基本元素，所有满足可加性与数乘性的向量集合构成了向量空间，我们用向量坐标表示矩阵，通过矩阵运算描述线性变换。**
 
-## 矩阵
+## 5. 矩阵
 
 从数学定义而言，矩阵是一系列复数或者实数的集合，最早是由方程组的系数和常数项构造而来。
 
 $$ \begin{cases} x+y+z = 6 \\\\ 0x + 2y+5z = -4 \\\\ 2x + 5y - z = 27  \end{cases} \Rightarrow \begin{bmatrix} 1 & 1 & 1 \\\\ 0 &  2  & 5 \\\\ 2 & 5  & -1 \end{bmatrix} \begin{bmatrix}  x  \\\\  y  \\\\  z \end{bmatrix} = \begin{bmatrix} 6  \\\\ -4  \\\\ 27 \end{bmatrix}$$
-
 
 既然有了$x, y, z$的出现，那么从代数未知数$x, y, z$到三维几何空间中某一个点的坐标$(x, y, z)$的联想便显得非常自然而然。在线性代数中，所有的向量必须从坐标原点出发，那么向量的终点坐标$(x, y)$便唯一确定了该向量，为了与坐标表示做区分，向量使用$ \begin{bmatrix} x \\\\ y \end{bmatrix} $表示。那么从矩阵的角度看上述方程组，就相当于在问：空间中的一向量$ \begin{bmatrix} x  \\\\ y  \\\\ z \end{bmatrix}$ 经矩阵$\begin{bmatrix} 1 & 1 & 1 \\\\ 0 &  2  & 5 \\\\ 2 & 5  & -1 \\\\ \end{bmatrix}$变换后，转换为了向量$ \begin{bmatrix} 6  \\\\ -4  \\\\ 27  \\\\ \end{bmatrix}$，求该向量。先不论该问题到底如何求解，但由此，我们至少说明了矩阵是如何描述向量空间中的线性变换——矩阵乘法。又如，对于空间中向量$\begin{bmatrix} x  \\\\ y  \\\\ z \end{bmatrix}$先进行$A$变换，再进行$B$变换，我们可以表示为
 
@@ -139,14 +121,13 @@ $$ \begin{cases} x+y+z = 6 \\\\ 0x + 2y+5z = -4 \\\\ 2x + 5y - z = 27  \end{case
 $$ \overrightarrow{OC} = 2 \overrightarrow{OA} + 2 \overrightarrow{OB} = 2 \begin{bmatrix}1  \\\\ 0 \end{bmatrix} + 2 \begin{bmatrix} 0  \\\\ 1
 \end{bmatrix} = \begin{bmatrix} 2 \times 1 + 2 \times 0  \\\\ 2 \times 0 + 2 \times 1 \end{bmatrix} = \begin{bmatrix} 2 \\\\ 2 \end{bmatrix} = 2 \begin{bmatrix} 1 \\\\ 1 \end{bmatrix} $$
 
-
 由上式可知，向量$\overrightarrow{OC}$可以看作是$\overrightarrow{oa}$在$X$和$Y$轴方向放大两倍之后的结果，也就是保持坐标原点位置及坐标不动，将$X$轴和$Y$轴放大为原来的 2 倍，此时与正好相等。放大后，原来的基向量$\overrightarrow{i}$与$ \overrightarrow{j} $坐标分别变为了$\begin{bmatrix} 2 \\\\ 0 \end{bmatrix}$和$\begin{bmatrix} 0 \\\\ 2 \end{bmatrix}$，这个变换过程可以用矩阵表示为$\overrightarrow{OC} =  \begin{bmatrix} 2 \\\\ 2 \end{bmatrix} = \begin{bmatrix} 2  & 0  \\\\ 0  & 2 \end{bmatrix} \begin{bmatrix} 1 \\\\ 1 \end{bmatrix}$，即向量$\overrightarrow{oa} = \begin{bmatrix} 1 \\\\ 1 \end{bmatrix}$，经过矩阵$\begin{bmatrix} 2  & 0  \\\\ 0  & 2 \end{bmatrix}$变换由原坐标$\begin{bmatrix} 1 \\\\ 1 \end{bmatrix}$变成了$\begin{bmatrix} 2 \\\\ 2 \end{bmatrix}$，变换矩阵$\begin{bmatrix} 2  & 0  \\\\ 0  & 2 \end{bmatrix}$的第一列正好为变换后$\overrightarrow{i}$的坐标，第二列则为$\overrightarrow{j}$的坐标。我们追踪基向量的变化过程,$i: \begin{bmatrix} 1  \\\\ 0 \end{bmatrix}  => \begin{bmatrix} 2  \\\\ 0 \end{bmatrix}$，$j: \begin{bmatrix} 0  \\\\ 1 \end{bmatrix}  => \begin{bmatrix} 0  \\\\ 2 \end{bmatrix}$，所以此处，由变换后$\overrightarrow{i}$和$\overrightarrow{j}$向量坐标组成的矩阵$\begin{bmatrix} 2 & 0 \\\\ 0 & 2 \end{bmatrix}$表示放大 2 倍的缩放变换矩阵。
 $$ \overrightarrow{OC} = \begin{bmatrix} 2  & 0  \\\\ 0  & 2 \end{bmatrix} \begin{bmatrix} 1 \\\\ 1 \end{bmatrix} = 1 \begin{bmatrix} 2 \\\\ 0 \end{bmatrix} + 1 \begin{bmatrix} 0 \\\\ 2 \end{bmatrix} = \begin{bmatrix} 1 \times 2 + 1 \times 0  \\\\ 1 \times 0 + 1 \times 2 \end{bmatrix} = \begin{bmatrix}2 \\\\ 2 \end{bmatrix} $$
 
 
 **（该计算过程非常重要，是可加性与数乘性的体现，也是其他复杂计算的基础）**
 
-# CSS 中基础变换的 matrix 表示推导
+## 6. CSS 中基础变换的 matrix 表示推导
 
 至此，我们回过头来看，上文图 3 中的基础变换为何可以与复杂的 matrix 对应。但在此之前，首先要解释一下，为何在二维坐标中矩阵变换会需要三维坐标表示。其实，这里主要引入了齐次坐标的概念，也就是用 N+1 维来代表 N 维坐标。还记得上一节缩放矩阵的例子吗？在缩放时，我们并没有改变原点的位置，因为线性变换要求变换前后坐标原点不能发生变化，平移变化移动了原点，所以不能称之为线性变化。把现有的二维空间升纬到三维空间去看，而多出的那一维度对于二维空间而言并用不到，所以并不会有任何影响，升维之后便可以在高维度通过线性变换完成低维度的仿射变换。
 
@@ -175,14 +156,30 @@ $$translate(m, n) = \begin{bmatrix} 1 & 0 & m \\\\ 0 & 1  & n \\\\ 0 & 0 & 1 \en
 
 至此，希望当下次看到 matrix 属性时，对你而言，其中的数字并不仅仅是一堆数字，而代表着一种具体变换
 
-## 线性化的其他应用场景
+## 7. 线性化的其他应用场景
 
 目前火热的人脸识别技术便是通过线性化实现的。人可以很容易区分两张面容图是不是同一个人，而计算机只能将所有问题数字化，实现方案便是将人脸线性化。如果将人脸中较为重要的鼻子、眼睛、嘴巴等采样点数据通过某种算法数字化，并用坐标表示，那么当给出一张新的面容时，按照相同的方法算出当前面容图的坐标，通过结果坐标是否落在目标平面或平面附近，就可以判断是不是同一个人。
 
-
-## 参考资料
+## 8. 参考资料
 
 1. [The CSS3 matrix() Transform for the Mathematically Challenged](https://www.useragentman.com/blog/2011/01/07/css3-matrix-transform-for-the-mathematically-challenged/)
 2. [CSS Transforms Module Level 1](https://www.w3.org/TR/css-transforms-1/)
 3. [3Blue1Brown](https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw)
 
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [
+        ['$', '$'],
+        ['\\(', '\\)']
+      ],
+      displayMath: [
+        ['$$', '$$'],
+        ['\\[', '\\]']
+      ],
+      processEscapes: true
+    }
+  };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>

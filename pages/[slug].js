@@ -5,6 +5,7 @@ import Header from '../components/Header'
 import PostPage from '../components/PostPage'
 import Container from '../components/Container'
 import ErrorPage from '../components/ErrorPage'
+import Footer from '../components/Footer'
 
 import { getAllPosts, getPostBySlug } from '../lib/post'
 import markdownToHtml from '../lib/markdownToHtml'
@@ -74,6 +75,7 @@ export default function Post({ post, morePosts, preview }) {
           content={post.content}
         />
       </Container>
+      <Footer />
     </>
   )
 }

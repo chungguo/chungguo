@@ -1,4 +1,4 @@
-import Head from 'next/head' 
+import Head from 'next/head'
 import { getAllPosts } from '../lib/post'
 import Container from '../components/Container'
 import Header from '../components/Header'
@@ -36,8 +36,8 @@ export default function BlogIndex(props) {
       <Container>
         <HeroPost {...heroPost} />
         <PostCards posts={otherPosts} />
-        <Footer />
       </Container>
+      <Footer />
     </>
   )
 }

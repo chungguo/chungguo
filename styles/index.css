@@ -1,17 +1,12 @@
 @tailwind base;
 @tailwind components;
 
-.footnotes hr {
-  display: none
-}
-
 .footnotes ol {
   @apply text-gray-600 text-sm;
 }
 
-.footnotes::before {
-  content: '注解';
-  @apply text-gray-600 font-semibold;
+.footnotes hr {
+  @apply border-t border-dashed border-gray-200;
 }
 
 ol, ul {

@@ -1,4 +1,3 @@
-import Footer from './Footer'
 import Issue from './Issue'
 import markdownStyles from '../styles/markdown.module.css'
 
@@ -14,7 +13,6 @@ export default function PostPage(props) {
         dangerouslySetInnerHTML={{ __html: content }}
       />
       <Issue />
-      <Footer />
     </article>
   )
 }

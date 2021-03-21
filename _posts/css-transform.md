@@ -3,6 +3,7 @@ title: 'CSS 变换背后的线性变换原理'
 date: '2020-03-26 18:29:00'
 cover: '/assets/blog/css-transform/cover.png'
 excerpt: '在看似简单，并被我们习以为常的 css 变换背后，隐藏着复杂的矩阵变换，本文尝试解释其中的数学原理'
+mathJax: true
 ---
 
 `CSS` 的 `transform` 属性允许开发者无需借助 `SVG`、`Canvas`、`Javascript` 等方式，仅仅通过 `CSS` 便能以尽可能简单的方式实现对指定标签元素的旋转（`rotate`）、缩放（`scale`）、倾斜（`skew`）、平移（`translate`）等操作，大大丰富了前端页面布局及动画效果的可能性。但更深层次而言，在这些直观易懂的属性背后却是更为高阶的 `matrix` 属性发挥着作用。如果能够正确理解 `matrix` 属性及其背后的线性变换原理，那么再回头看 `matrix` 属性时，便会有拨开云雾见青天的快感。
@@ -165,21 +166,3 @@ $$translate(m, n) = \begin{bmatrix} 1 & 0 & m \\\\ 0 & 1  & n \\\\ 0 & 0 & 1 \en
 1. [The CSS3 matrix() Transform for the Mathematically Challenged](https://www.useragentman.com/blog/2011/01/07/css3-matrix-transform-for-the-mathematically-challenged/)
 2. [CSS Transforms Module Level 1](https://www.w3.org/TR/css-transforms-1/)
 3. [3Blue1Brown](https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw)
-
-<script>
-  MathJax = {
-    tex: {
-      inlineMath: [
-        ['$', '$'],
-        ['\\(', '\\)']
-      ],
-      displayMath: [
-        ['$$', '$$'],
-        ['\\[', '\\]']
-      ],
-      processEscapes: true
-    }
-  };
-</script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>

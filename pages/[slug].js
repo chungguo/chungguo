@@ -34,6 +34,7 @@ export async function getStaticProps({ params }) {
     'slug',
     'content',
     'cover',
+    'mathJax'
   ])
 
   const content = await markdownToHtml(post.content || '')
@@ -55,7 +56,13 @@ export default function Post({ post, morePosts, preview }) {
     return <ErrorPage statusCode={404} />
   }
 
-  const { title = '', date = '', excerpt = '', slug } = post
+  const {
+    slug = '',
+    title = '',
+    date = '',
+    excerpt = '',
+    mathJax = false,
+  } = post
 
   return (
     <>
@@ -68,6 +75,15 @@ export default function Post({ post, morePosts, preview }) {
           <meta property="og:image" content={post?.cover} />
           <meta property="og:url" content={`https://chungguo.me/${slug}`} />
           <meta property="og:description" content={excerpt} />
+          {
+            mathJax && (
+              <>
+                <script src="/scripts/math-jax.js"></script>
+                <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+                <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+              </>
+            )
+          }
         </Head>
         <PostPage
           title={title}

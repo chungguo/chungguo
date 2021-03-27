@@ -13,6 +13,7 @@ export async function getStaticProps() {
     'slug',
     'cover',
     'excerpt',
+    'draft',
   ])
 
   return {

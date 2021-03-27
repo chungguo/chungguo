@@ -34,7 +34,7 @@ export async function getStaticProps({ params }) {
     'slug',
     'content',
     'cover',
-    'mathJax'
+    'mathJax',
   ])
 
   const content = await markdownToHtml(post.content || '')

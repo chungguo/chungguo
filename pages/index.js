@@ -15,16 +15,16 @@ export default function Index() {
         <meta property="og:url" content='https://chungguo.me/' />
         <meta property="og:description" content="I'm chungguo, coder, amateur photographer" />
       </Head>
-      <main className="w-full h-screen grid grid-rows-1 items-center justify-center">
+      <main className="w-full h-screen flex items-center justify-center flex-col">
         <Link href="/blog">
-          <article className="cursor-pointer items-center justify-center text-center -mt-32">
+          <article className="cursor-pointer flex flex-col items-center justify-center text-center flex-1 -mt-32">
             <img className="w-28 lg:w-40 md:32 inline rounded-full bg-gray-200" src="./chungguo.jpg" alt="avatar" />
             <h2 className="text-base font-semibold py-4 lg:text-4xl md:text-2xl">
               <span className="text-indigo-600">CODER, </span>AMATEUR PHOTOGRAPHER.
             </h2>
           </article>
         </Link>
-        <Social styleNames="py-8 justify-center" />
+        <Social styleNames="h-20 justify-center" />
       </main>
     </>
   )

@@ -5,7 +5,7 @@ const GA_TRACKING_ID = 'UA-139659149-1';
 class MyDocument extends Document {
   render() {
     return (
-      <Html lang="zh-cmn-Hans">
+      <Html  lang="zh-cmn-Hans">
         <Head>
           <meta char-set="UTF-8" />
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />

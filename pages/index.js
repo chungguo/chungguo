@@ -20,7 +20,8 @@ export default function Index() {
           <article className="cursor-pointer flex flex-col items-center justify-center text-center flex-1 -mt-32">
             <img className="w-28 lg:w-40 md:32 inline rounded-full bg-gray-200" src="./chungguo.jpg" alt="avatar" />
             <h2 className="text-base font-semibold py-4 lg:text-4xl md:text-2xl">
-              <span className="text-indigo-600">CODER, </span>AMATEUR PHOTOGRAPHER.
+              <p>👋 Hi, I'm chungguo</p>
+              <p><span className="text-indigo-600">coder, </span>amateur photographer.</p>
             </h2>
           </article>
         </Link>

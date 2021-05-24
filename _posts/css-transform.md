@@ -8,7 +8,7 @@ mathJax: true
 
 `CSS` 的 `transform` 属性允许开发者无需借助 `SVG`、`Canvas`、`Javascript` 等方式，仅仅通过 `CSS` 便能以尽可能简单的方式实现对指定标签元素的旋转（`rotate`）、缩放（`scale`）、倾斜（`skew`）、平移（`translate`）等操作，大大丰富了前端页面布局及动画效果的可能性。但更深层次而言，在这些直观易懂的属性背后却是更为高阶的 `matrix` 属性发挥着作用。如果能够正确理解 `matrix` 属性及其背后的线性变换原理，那么再回头看 `matrix` 属性时，便会有拨开云雾见青天的快感。
 
-![transform 示例](https://i.loli.net/2020/05/16/vUrwnIYM1T7Qqdg.png)
+![transform 示例](/assets/blog/css-transform/transform.png)
 
 ## 1. 我们为什么需要理解 matrix 属性
 
@@ -49,13 +49,13 @@ h2 {
 
 目前，在所有支持 `CSS transform` 属性的的浏览器中，当我们使用 `window.getComputedStyle` 方法获取元素所有最终应用的 `CSS` 属性值时，细心的你肯定早已发现，所有的 `translate`、`rotate`、`skew` 都被解析成了 `matrix` 属性。例如，`xscroll` 模拟滚动实现方案的原理便是使用了 `transform` 的 `translate` 属性，浏览器会将其转换成等价的 `matrix` 属性。如果不理解 `matrix` 属性，那么获取从 `computedStyle` 中获取当前滚动值就会比较困难。
 
-![图2. translate 最终会被转化为 matrix](https://i.loli.net/2020/05/16/RZPmDTdExiCrAJ2.png)
+![图2. translate 最终会被转化为 matrix](/assets/blog/css-transform/translate-to-matrix.png)
 
 ### 1.3 矩阵变换实现图形变换
 
 如果说从上述两个角度解释为什么我们需要理解看似复杂的 `matrix` 属性是站在更加上层的应用层角度做出的解释。那么从更根本的层面上而言，是因为计算机对图形图像的处理过程，需要用到各种各样的几何变换，而这些变换基本都是由平移、缩放、旋转等基本变换组合而来（其实，这也解释了为什么 `css transform` 提供了 `translate`、`rotate`、`scale`、`skew` 等属性，因为这些属性恰恰正是这些基础变换的语法糖）。对于一个指定空间中的指定图形图像，为了便于精确描述，通常会将其放入一个坐标系统中，这样图形图像上的每一个点都有一个唯一的坐标。对图形图像的变换实际就是图形图像上的每一个点进行坐标变换，如果使用传统的解析几何描述这些坐标变换，计算会变得非常复杂，显然不符合「大道至简」自然法则。矩阵的出现则在形式上更加简洁优美，同时将各种变换通过矩阵乘法运算进行了语言表达的统一，具体而言，二维平面内 `css transform` 基础变换均可以统一为如下所示的三行三列的矩阵乘法：
 
-![图3. rotate、skew、scale、translate 变换的 matrix 表示法，将所有变换统一为了矩阵的乘法运算](https://i.loli.net/2020/05/16/x9UwOPuegRCXvSW.png)
+![图3. rotate、skew、scale、translate 变换的 matrix 表示法，将所有变换统一为了矩阵的乘法运算](/assets/blog/css-transform/matrix-formula.png)
 
 从上列各式，我们引入了矩阵的简单概念及形式，但因**矩阵本质上描述的是向量空间（线性空间）中的线性变换**。所以，了解矩阵之前，首先需要了解什么是向量、向量空间以及什么是线性变换。
 
@@ -63,7 +63,7 @@ h2 {
 
 向量是一个同时具有大小和方向，且满足平行四边形法则的几何对象，我们高中物理力学及解析几何中称之为矢量。更形象而言，从物理学的角度来看，我们习惯于使用一个有方向的箭头表示，且物理中的向量是可以随意移动的，只要向量的大小和方向不变，无论如何移动，均为同一向量，如图：
 
-![图4. 向量表示](https://i.loli.net/2020/05/16/dFCuq8x5njaYeBw.png)
+![图4. 向量表示](/assets/blog/css-transform/vector.png)
 
 而站在数字化的计算机角度，向量则表示的是一有序的列表，类似数组。因数学是高度抽象的，所以从数学的角度出发，只要满足一定的规则，向量可以是一个具体的函数，也可以是经抽象后更一般的向量概念，使用向量符号，如 $\vec v$
 
@@ -99,7 +99,7 @@ $$ af(x) = a(kx + b) = akx + ab $$
 
 变换（transformation）指的是空间中从一个点/元素到另一个点/元素的运动，但它不是微积分中的连续性的**运动**，而是瞬间发生的变化。以我们熟知的函数做类比，函数接收一个输入，得到一个输出。类似的，变换亦如此。之所以没有使用「函数」的概念，也许正是想让我们抛开代数式的理解方式，以运动的眼光看变换。
 
-![图5. 变换](https://i.loli.net/2020/05/16/hfz4xE9yU7KR8vj.png)
+![图5. 变换](/assets/blog/css-transform/transform-diagram.png)
 
 至此，一言以蔽之，**向量是线性空间的基本元素，所有满足可加性与数乘性的向量集合构成了向量空间，我们用向量坐标表示矩阵，通过矩阵运算描述线性变换。**
 
@@ -115,7 +115,7 @@ $$ \begin{cases} x+y+z = 6 \\\\ 0x + 2y+5z = -4 \\\\ 2x + 5y - z = 27  \end{case
 
 只不过形式上，变换的顺序是从右到左的，与我们常见的函数形式做类似，则形如$g(f(x))$，我们会先计算$f(x)$，然后才是$g(t)$，变换$A$则相当于函数$f$，变换$B$则相当于函数$g$。如此从形式上做对比，便更利于理解。当我们完成从代数到几何的思维转换之后，接下来我们就需要在几何中确定一组单位向量（基向量）以便于表示和理解矩阵计算。众所周知，我们定义沿着坐标轴方向，长度为单位长度的向量为该方向的单位向量（基向量），如$x$轴的基向量为$\overrightarrow{OA}$，记作$\overrightarrow{i}$，$y$轴的基向量为$\overrightarrow{OB}$，记作$\overrightarrow{j}$。那么在确定一组基向量后，由该组基向量所构成的线性空间内的所有向量均可用该组基向量的线性组合表示。由于变换是线性的，所以我们只需要知道该组基向量经线性变换后被变换到了哪里，就可以知道任何一个向量经变换后的坐标表示。
 
-![图6. 基向量及其组合而来的其他向量](https://i.loli.net/2020/05/16/v5D2ABzaTEUQlwh.png)
+![图6. 基向量及其组合而来的其他向量](/assets/blog/css-transform/vector-composition.png)
 
 那么举例而言$\overrightarrow{OC}$的坐标计算如下：
 
@@ -123,21 +123,18 @@ $$ \overrightarrow{OC} = 2 \overrightarrow{OA} + 2 \overrightarrow{OB} = 2 \begi
 \end{bmatrix} = \begin{bmatrix} 2 \times 1 + 2 \times 0  \\\\ 2 \times 0 + 2 \times 1 \end{bmatrix} = \begin{bmatrix} 2 \\\\ 2 \end{bmatrix} = 2 \begin{bmatrix} 1 \\\\ 1 \end{bmatrix} $$
 
 由上式可知，向量$\overrightarrow{OC}$可以看作是$\overrightarrow{oa}$在$X$和$Y$轴方向放大两倍之后的结果，也就是保持坐标原点位置及坐标不动，将$X$轴和$Y$轴放大为原来的 2 倍，此时与正好相等。放大后，原来的基向量$\overrightarrow{i}$与$ \overrightarrow{j} $坐标分别变为了$\begin{bmatrix} 2 \\\\ 0 \end{bmatrix}$和$\begin{bmatrix} 0 \\\\ 2 \end{bmatrix}$，这个变换过程可以用矩阵表示为$\overrightarrow{OC} =  \begin{bmatrix} 2 \\\\ 2 \end{bmatrix} = \begin{bmatrix} 2  & 0  \\\\ 0  & 2 \end{bmatrix} \begin{bmatrix} 1 \\\\ 1 \end{bmatrix}$，即向量$\overrightarrow{oa} = \begin{bmatrix} 1 \\\\ 1 \end{bmatrix}$，经过矩阵$\begin{bmatrix} 2  & 0  \\\\ 0  & 2 \end{bmatrix}$变换由原坐标$\begin{bmatrix} 1 \\\\ 1 \end{bmatrix}$变成了$\begin{bmatrix} 2 \\\\ 2 \end{bmatrix}$，变换矩阵$\begin{bmatrix} 2  & 0  \\\\ 0  & 2 \end{bmatrix}$的第一列正好为变换后$\overrightarrow{i}$的坐标，第二列则为$\overrightarrow{j}$的坐标。我们追踪基向量的变化过程,$i: \begin{bmatrix} 1  \\\\ 0 \end{bmatrix}  => \begin{bmatrix} 2  \\\\ 0 \end{bmatrix}$，$j: \begin{bmatrix} 0  \\\\ 1 \end{bmatrix}  => \begin{bmatrix} 0  \\\\ 2 \end{bmatrix}$，所以此处，由变换后$\overrightarrow{i}$和$\overrightarrow{j}$向量坐标组成的矩阵$\begin{bmatrix} 2 & 0 \\\\ 0 & 2 \end{bmatrix}$表示放大 2 倍的缩放变换矩阵。
-$$ \overrightarrow{OC} = \begin{bmatrix} 2  & 0  \\\\ 0  & 2 \end{bmatrix} \begin{bmatrix} 1 \\\\ 1 \end{bmatrix} = 1 \begin{bmatrix} 2 \\\\ 0 \end{bmatrix} + 1 \begin{bmatrix} 0 \\\\ 2 \end{bmatrix} = \begin{bmatrix} 1 \times 2 + 1 \times 0  \\\\ 1 \times 0 + 1 \times 2 \end{bmatrix} = \begin{bmatrix}2 \\\\ 2 \end{bmatrix} $$
-
-
-**（该计算过程非常重要，是可加性与数乘性的体现，也是其他复杂计算的基础）**
+$$ \overrightarrow{OC} = \begin{bmatrix} 2  & 0  \\\\ 0  & 2 \end{bmatrix} \begin{bmatrix} 1 \\\\ 1 \end{bmatrix} = 1 \begin{bmatrix} 2 \\\\ 0 \end{bmatrix} + 1 \begin{bmatrix} 0 \\\\ 2 \end{bmatrix} = \begin{bmatrix} 1 \times 2 + 1 \times 0  \\\\ 1 \times 0 + 1 \times 2 \end{bmatrix} = \begin{bmatrix}2 \\\\ 2 \end{bmatrix} $$ **（该计算过程非常重要，是可加性与数乘性的体现，也是其他复杂计算的基础）**
 
 ## 6. CSS 中基础变换的 matrix 表示推导
 
 至此，我们回过头来看，上文图 3 中的基础变换为何可以与复杂的 matrix 对应。但在此之前，首先要解释一下，为何在二维坐标中矩阵变换会需要三维坐标表示。其实，这里主要引入了齐次坐标的概念，也就是用 N+1 维来代表 N 维坐标。还记得上一节缩放矩阵的例子吗？在缩放时，我们并没有改变原点的位置，因为线性变换要求变换前后坐标原点不能发生变化，平移变化移动了原点，所以不能称之为线性变化。把现有的二维空间升纬到三维空间去看，而多出的那一维度对于二维空间而言并用不到，所以并不会有任何影响，升维之后便可以在高维度通过线性变换完成低维度的仿射变换。
 
-![图 7 仿射变换](https://i.loli.net/2020/05/16/JxWXLiVsQ6tgPel.png)
+![图 7 仿射变换](/assets/blog/css-transform/affine-transformation.png)
 
 另外，引入齐次坐标也可以统一计算形式，因为平移变化在表示上为矩阵加法，如将矩阵$\overrightarrow{OC} = \begin{bmatrix} 2  & 0 \\\\ 0   & 2 \end{bmatrix}$向右平移一个单位长度，那么其计算方法为：$\overrightarrow{OC'} = \begin{bmatrix} 2  & 0 \\\\ 0   & 2 \end{bmatrix} + \begin{bmatrix} 1  & 0 \\\\ 0   & 1 \end{bmatrix} = \begin{bmatrix} 3  & 0 \\\\ 0   & 3 \end{bmatrix}$。但缩放、旋转却为矩阵乘法，如将$\overrightarrow{OC} = \begin{bmatrix} 2 \\\\ 2 \end{bmatrix}$放大 0.5 倍，其计算方法为 $\overrightarrow{OC''} =
 \begin{bmatrix} 0.5  & 0 \\\\ 0   & 0.5 \end{bmatrix} \begin{bmatrix} 2  \\\\ 2 \end{bmatrix} = \begin{bmatrix} 1 \\\\ 1 \end{bmatrix} $ 这样在一次平移与缩放同时存在的复杂变换中，就会存在矩阵加法与乘法的同时存在，因加法与乘法的计算规则不同，势必会增添计算的复杂性。齐次坐标的引入，便是为了解决该问题，将矩阵加法统一成了矩阵乘法，描述和计算上更加简洁，是一种数学之美的体现。下面，我们来看图 3 中各式的推导过程： 
 
-![图 8 旋转变换](https://i.loli.net/2020/05/16/j8GpC3UtzlJYWKM.png)
+![图 8 旋转变换](/assets/blog/css-transform/rotate-tansform.png)
 
 对于旋转变换，如果进行逆时针旋转$\theta$，那么基向量的变化过程,$i: \begin{bmatrix} 1  \\\\ 0 \end{bmatrix}  => \begin{bmatrix} cos(\theta) \\\\ sin(\theta) \end{bmatrix}$，$j: \begin{bmatrix} 0  \\\\ 1 \end{bmatrix}  => \begin{bmatrix} -sin(\theta)  \\\\ cos(\theta) \end{bmatrix}$，故而对于二维平面内任意向量，其旋转矩阵用笛卡尔坐标系表示则为：$\begin{bmatrix} cos(\theta) & -sin(\theta) \\\\ sin(\theta)  & cos(\theta)\end{bmatrix} $，引入齐次坐标后，则表示为$\begin{bmatrix} cos(\theta)  & -sin(\theta) & 0 \\\\ sin(\theta)  & cos(\theta) & 0 \\\\0 & 0 & 1 \end{bmatrix}$（引入$Z$轴基向量$\begin{bmatrix} 0 \\\\ 0 \\\\ 1 \end{bmatrix}$，下同），所以对向量$\begin{bmatrix} x \\\\ y \\\\ 1\end{bmatrix}$进行旋转，矩阵可表示为$rotate(\theta) =  \begin{bmatrix} cos(\theta)  & -sin(\theta) & 0 \\\\ sin(\theta)  & cos(\theta)  & 0 \\\\ 0 & 0 & 1 \end{bmatrix} \begin{bmatrix} x \\\\ y \\\\ 1\end{bmatrix}$
 
@@ -145,7 +142,7 @@ $$ \overrightarrow{OC} = \begin{bmatrix} 2  & 0  \\\\ 0  & 2 \end{bmatrix} \begi
 
 $$scale(m, n) = \begin{bmatrix} m & 0 & 0 \\\\ 0 & n  & 0 \\\\ 0 & 0 & 1 \end{bmatrix} \begin{bmatrix} x \\\\ y \\\\ 1 \end{bmatrix}$$
 
-![图 9 斜切变换](https://i.loli.net/2020/05/16/bj16ZTczGPyMN3H.png)
+![图 9 斜切变换](/assets/blog/css-transform/skew-transform.png)
 
 对于斜切变换，参照示意图，我们同样不难推导出斜切变换的矩阵表示：
 

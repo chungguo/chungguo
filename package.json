@@ -1,6 +1,6 @@
 {
   "name": "chungguo.me",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.2.5",
-    "postcss": "^8.2.8",
-    "tailwindcss": "^2.0.3"
+    "postcss": "^8.3.0",
+    "tailwindcss": "^2.1.2"
   }
 }

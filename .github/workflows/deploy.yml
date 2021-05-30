@@ -17,6 +17,8 @@ jobs:
     steps:
     - name: 切换分支
       uses: actions/checkout@v2.3.4
+    - name: 拉取代吗
+      uses: git pull
     - name: 安装依赖
       run: npm install
     - name: 构建
@@ -33,6 +35,8 @@ jobs:
     steps:
     - name: 切换分支
       uses: actions/checkout@v2.3.4
+    - name: 拉取代吗
+      uses: git pull
     - name: 安装依赖
       run: npm install
     - name: 构建

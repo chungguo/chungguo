@@ -20,7 +20,6 @@ class MyDocument extends Document {
           <meta property="og:description" content="I'm chungguo, coder, amateur photographer" />
           <meta name="og:region" content="CN" />
           <meta name="og:country-name" content="CHN" />
-          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, maximum-scale=1" />
           <link rel="canonical" href="https://chungguo.me/" data-baseprotocol="https:" data-basehost="chungguo.me" />
           <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png" />
           <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png" />

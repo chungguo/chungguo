@@ -1,7 +1,11 @@
 import Issue from './Issue'
 import markdownStyles from '../styles/markdown.module.css'
 
-export default function PostPage(props) {
+export default function PostPage(props: {
+  content: string,
+  title: string,
+  date: string,
+}) {
   const { content, title, date } = props
 
   return (

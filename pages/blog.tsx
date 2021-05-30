@@ -1,10 +1,10 @@
-import Head from 'next/head'
-import { getAllPosts } from '../lib/post'
-import Container from '../components/Container'
-import Header from '../components/Header'
-import HeroPost from '../components/HeroPost'
-import PostCards from '../components/PostCards'
-import Footer from '../components/Footer'
+import Head from 'next/head';
+import { getAllPosts } from '../lib/post';
+import Container from '../components/Container';
+import Header from '../components/Header';
+import HeroPost from '../components/HeroPost';
+import PostCards from '../components/PostCards';
+import Footer from '../components/Footer';
 
 export async function getStaticProps() {
   const allPosts = getAllPosts([

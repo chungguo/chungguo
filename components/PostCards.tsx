@@ -1,6 +1,12 @@
 import Link from 'next/link';
 
-function PostCard(props) {
+function PostCard(props: {
+  title: string,
+  cover: string,
+  date: string,
+  excerpt: string,
+  slug: string,
+}) {
   const { slug, title, date, cover, excerpt } = props;
 
   return (

@@ -1,16 +1,16 @@
-import Head from 'next/head'
-import { useRouter } from 'next/router'
+import Head from 'next/head';
+import { useRouter } from 'next/router';
 
-import Header from '../components/Header'
-import PostPage from '../components/PostPage'
-import Container from '../components/Container'
-import ErrorPage from '../components/ErrorPage'
-import Footer from '../components/Footer'
+import Header from '../components/Header';
+import PostPage from '../components/PostPage';
+import Container from '../components/Container';
+import ErrorPage from '../components/ErrorPage';
+import Footer from '../components/Footer';
 
-import { getAllPosts, getPostBySlug } from '../lib/post'
-import markdownToHtml from '../lib/markdownToHtml'
+import { getAllPosts, getPostBySlug } from '../lib/post';
+import markdownToHtml from '../lib/markdownToHtml';
 
-import 'highlight.js/styles/github.css'
+import 'highlight.js/styles/github.css';
 
 export async function getStaticPaths() {
   const posts = getAllPosts(['slug'])

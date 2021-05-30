@@ -1,6 +1,12 @@
 import Link from 'next/link';
 
-export default function HeroPost(props) {
+export default function HeroPost(props: {
+  title: string,
+  cover: string,
+  date: string,
+  excerpt: string,
+  slug: string,
+}) {
   const {
     title,
     cover,

@@ -1,5 +1,5 @@
-import Social from './Social'
-import Avatar from './Avatar'
+import Social from './Social';
+import Avatar from './Avatar';
 
 export default function Header() {
   return (

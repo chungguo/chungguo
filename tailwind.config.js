@@ -6,8 +6,8 @@ module.exports = {
     resize: false,
   },
   purge: [
-    './components/**/*.js',
-    './pages/**/*.js'
+    './components/**/*.tsx',
+    './pages/**/*.tsx',
   ],
   darkMode: 'class',
   theme: {

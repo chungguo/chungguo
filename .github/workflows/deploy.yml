@@ -21,7 +21,7 @@ jobs:
     - name: 构建
       run: set NODE_OPTIONS=--max-old-space-size=1024 && yarn build
     - name: 重启
-      run: pm2 delete chungguo || pm2 start yarn --name chungguo -- start
+      run: (pm2 delete chungguo && pm2 start yarn --name chungguo -- start) || pm2 start yarn --name chungguo -- start
 
   OracleSeoulFD2:
     defaults:
@@ -36,4 +36,4 @@ jobs:
     - name: 构建
       run: set NODE_OPTIONS=--max-old-space-size=1024 && yarn build
     - name: 重启
-      run: pm2 delete chungguo || pm2 start yarn --name chungguo -- start
+      run: (pm2 delete chungguo && pm2 start yarn --name chungguo -- start) || pm2 start yarn --name chungguo -- start

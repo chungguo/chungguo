@@ -9,7 +9,7 @@ export default function PostPage(props: {
   const { content, title, date } = props
 
   return (
-    <article className="py-4">
+    <article className="py-4 line-numbers">
       <h1 className="text-3xl font-semibold">{title}</h1>
       <time className="block mt-4 text-gray-500 text-base" dateTime={date}>{date}</time>
       <div

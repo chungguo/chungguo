@@ -10,8 +10,6 @@ import Footer from '../components/Footer';
 import { getAllPosts, getPostBySlug } from '../lib/post';
 import markdownToHtml from '../lib/markdownToHtml';
 
-import 'highlight.js/styles/github.css';
-
 export async function getStaticPaths() {
   const posts = getAllPosts(['slug'])
 

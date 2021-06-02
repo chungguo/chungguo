@@ -30,18 +30,6 @@
   @apply text-indigo-600 px-1
 }
 
-.markdown pre {
-  @apply border p-4 bg-gray-100
-}
-
-.markdown code {
-  @apply px-2 bg-gray-100 rounded-lg
-}
-
-.markdown pre code {
-  @apply rounded-none
-}
-
 .markdown p,
 .markdown ul,
 .markdown ol,

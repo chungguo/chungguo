@@ -73,6 +73,8 @@ export default function Post({ post, morePosts, preview }) {
           <meta property="og:image" content={post?.cover} />
           <meta property="og:url" content={`https://chungguo.me/${slug}`} />
           <meta property="og:description" content={excerpt} />
+          <link rel="stylesheet" href="/assets/style/prism.css" />
+          <script src="/assets/common/prism.js" />
           {
             mathJax && (
               <>
@@ -88,7 +90,6 @@ export default function Post({ post, morePosts, preview }) {
           date={date}
           content={post.content}
         />
-        <script src="assets/common/prism.js" />
       </Container>
       <Footer />
     </>

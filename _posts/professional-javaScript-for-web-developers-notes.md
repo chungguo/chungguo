@@ -7,7 +7,7 @@ excerpt: '以脑图的形式记录了一些在阅读《 JavaScript 高级程序�
 
 [《 JavaScript 高级程序设计》读书笔记 —— 基本概念](/assets/blog/javascript-notes/basic-javascript.pdf)
 
-[《 JavaScript 高级程序设计》读书笔记 —— 脚本化 CSS 样式](/assets/blog/javascript-notes-css/css.pdf")
+[《 JavaScript 高级程序设计》读书笔记 —— 脚本化 CSS 样式](/assets/blog/javascript-notes/css.pdf")
 
 [《 JavaScript 高级程序设计》读书笔记 —— DOM 节点类型](/assets/blog/javascript-notes/basic-javascript-dom.pdf)
 
@@ -15,7 +15,7 @@ excerpt: '以脑图的形式记录了一些在阅读《 JavaScript 高级程序�
 
 [《 JavaScript 高级程序设计》读书笔记 —— 在 HTML 中使用 JavaScript](/assets/blog/javascript-notes/javascript-in-html.pdf)
 
-[《 JavaScript 高级程序设计》读书笔记 —— 基本组成](/assets/blog/javascript-notes/core-javascript.pdf.pdf)
+[《 JavaScript 高级程序设计》读书笔记 —— 基本组成](/assets/blog/javascript-notes/core-javascript.pdf)
 
 [《 JavaScript 高级程序设计》读书笔记 —— 元素位置尺寸](/assets/blog/javascript-notes/element-position.pdf)
 

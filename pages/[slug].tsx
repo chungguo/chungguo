@@ -88,6 +88,7 @@ export default function Post({ post, morePosts, preview }) {
           date={date}
           content={post.content}
         />
+        <script src="assets/common/prism.js" />
       </Container>
       <Footer />
     </>

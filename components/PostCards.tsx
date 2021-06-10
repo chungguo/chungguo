@@ -1,13 +1,13 @@
 import Link from 'next/link';
+import { Post } from '../types/post';
 
-function PostCard(props: {
-  title: string,
-  cover: string,
-  date: string,
-  excerpt: string,
-  slug: string,
-}) {
-  const { slug, title, date, cover, excerpt } = props;
+interface PostCards {
+  posts: Post[]
+}
+
+function PostCard(props: Post) {
+  const { slug, meta } = props;
+  const { title, date, cover, excerpt } = meta;
 
   return (
     <section>
@@ -23,7 +23,7 @@ function PostCard(props: {
   )
 }
 
-export default function PostCards(props) {
+export default function PostCards(props: PostCards) {
   const { posts } = props;
 
   if (!Array.isArray(posts) || posts.length < 1) {

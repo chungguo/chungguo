@@ -22,3 +22,7 @@ ul li{
 ol li{
   list-style: decimal
 }
+
+img {
+  display: inline-block;
+}

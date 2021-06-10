@@ -1,19 +1,9 @@
 import Link from 'next/link';
+import { Post } from '../types/post';
 
-export default function HeroPost(props: {
-  title: string,
-  cover: string,
-  date: string,
-  excerpt: string,
-  slug: string,
-}) {
-  const {
-    title,
-    cover,
-    date,
-    excerpt,
-    slug,
-  } = props;
+export default function HeroPost(props: Post) {
+  const { meta, slug } = props;
+  const { title, cover, date, excerpt } = meta;
 
   return (
     <section className="grid sm:grid-cols-1 md:grid-cols-2 gap-x-12 my-12">

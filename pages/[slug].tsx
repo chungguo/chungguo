@@ -8,11 +8,9 @@ import ErrorPage from '../components/ErrorPage';
 import Footer from '../components/Footer';
 
 import { getAllPosts, getPostBySlug } from '../lib/post';
-import markdownToHtml from '../lib/markdownToHtml';
 
 export async function getStaticPaths() {
-  const posts = getAllPosts(['slug'])
-
+  const posts = getAllPosts();
   return {
     paths: posts.map((post) => {
       return {
@@ -26,41 +24,23 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const post = getPostBySlug(params.slug, [
-    'title',
-    'date',
-    'slug',
-    'content',
-    'cover',
-    'mathJax',
-  ])
-
-  const content = await markdownToHtml(post.content || '')
-
+  const post = getPostBySlug(params.slug)
   return {
     props: {
-      post: {
-        ...post,
-        content,
-      },
+      post
     },
   }
 }
 
-export default function Post({ post, morePosts, preview }) {
+export default function Post({ post }) {
   const router = useRouter()
 
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   }
 
-  const {
-    slug = '',
-    title = '',
-    date = '',
-    excerpt = '',
-    mathJax = false,
-  } = post
+  const { slug = '', meta, content } = post;
+  const { title = '', cover = '', excerpt = '', mathJax = false } = meta;
 
   return (
     <>
@@ -70,15 +50,13 @@ export default function Post({ post, morePosts, preview }) {
           <title>{title}</title>
           <meta property="og:type" content="article" />
           <meta property="og:title" content={title} />
-          <meta property="og:image" content={post?.cover} />
+          <meta property="og:image" content={cover} />
           <meta property="og:url" content={`https://chungguo.me/${slug}`} />
           <meta property="og:description" content={excerpt} />
-          <link rel="stylesheet" href="/assets/style/prism.css" />
-          <script src="/assets/common/prism.js" />
           {
             mathJax && (
               <>
-                <script 
+                <script
                   dangerouslySetInnerHTML={{
                     __html: `MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]],processEscapes:!0}};`
                   }}
@@ -89,11 +67,7 @@ export default function Post({ post, morePosts, preview }) {
             )
           }
         </Head>
-        <PostPage
-          title={title}
-          date={date}
-          content={post.content}
-        />
+        <PostPage slug={slug} meta={meta} content={content} />
       </Container>
       <Footer />
     </>

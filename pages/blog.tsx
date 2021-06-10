@@ -7,14 +7,7 @@ import PostCards from '../components/PostCards';
 import Footer from '../components/Footer';
 
 export async function getStaticProps() {
-  const allPosts = getAllPosts([
-    'title',
-    'date',
-    'slug',
-    'cover',
-    'excerpt',
-    'draft',
-  ])
+  const allPosts = getAllPosts()
 
   return {
     props: {
@@ -24,8 +17,8 @@ export async function getStaticProps() {
 }
 
 export default function BlogIndex(props) {
-  const { allPosts } = props
-  const [heroPost, ...otherPosts] = allPosts
+  const { allPosts } = props;
+  const [latest, ...otherPosts] = allPosts;
 
   return (
     <>
@@ -34,7 +27,7 @@ export default function BlogIndex(props) {
       </Head>
       <Header />
       <Container>
-        <HeroPost {...heroPost} />
+        <HeroPost {...latest} />
         <PostCards posts={otherPosts} />
       </Container>
       <Footer />

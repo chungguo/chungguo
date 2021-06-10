@@ -1,12 +1,12 @@
-import fs from 'fs';
 import matter from 'gray-matter';
 import { join } from 'path';
+import { readFileSync, readdirSync } from 'fs';
 
 const postsDirectory = join(process.cwd(), './_posts');
 
 /** 读取_post目录下所有md文件名称 */
 export function getPostSlugs() {
-  return fs.readdirSync(postsDirectory);
+  return readdirSync(postsDirectory);
 }
 
 /**
@@ -16,31 +16,27 @@ export function getPostSlugs() {
  *    content: ''
  * }
  */
-export function getPostBySlug(slug: string, fields = []) {
+export function getPostBySlug(slug: string) {
   const realSlug = slug.replace(/\.md$/, '');
   const fullPath = join(postsDirectory, `${realSlug}.md`);
-  const fileContents = fs.readFileSync(fullPath, 'utf8');
+  const fileContents = readFileSync(fullPath, 'utf8');
 
   const { data, content } = matter(fileContents);
 
-  return fields.reduce((items, field) => {
-    if (field === 'slug') {
-      items[field] = realSlug;
-    }
-    if (field === 'content') {
-      items[field] = content;
-    }
-
-    if (data[field]) {
-      items[field] = data[field];
-    }
-
-    return items;
-  }, {});
+  return {
+    slug: realSlug,
+    meta: data,
+    content,
+  };
 }
 
-export function getAllPosts(fields: string[] = []) {
-  return getPostSlugs().map((slug) => getPostBySlug(slug, fields))
-    .filter(post => post.draft !== true)
-    .sort((pre, next) => (new Date(pre.date).valueOf() > new Date(next.date).valueOf() ? -1 : 1))
+export function getAllPosts() {
+  return getPostSlugs()
+    .map(slug => getPostBySlug(slug))
+    .filter(post => post.meta.draft !== true)
+    .sort((pre, next) => {
+      const preDate = new Date(pre.meta.date).valueOf();
+      const nextDate = new Date(next.meta.date).valueOf();
+      return preDate > nextDate ? -1 : 1
+    });
 }

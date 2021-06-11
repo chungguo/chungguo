@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import '../styles/index.css';
+import 'chungguo/styles/index.css';
 
 export default function MyApp({ Component, pageProps }) {
   return (

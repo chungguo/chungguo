@@ -3,7 +3,6 @@ title: 'React FiberNode 在业务中的具体应用'
 date: '2021-03-21 23:01:00'
 cover: '/assets/blog/chrome-extension-for-react-table/cover.png'
 excerpt: '通过探究 React Devtools，了解到 DOM 与 Component 之间的映射关系，抽丝剥茧，逐渐学习了 React FiberNode 相关内容，并将相关知识应到到实际开发中，优雅地解决了业务中地实际问题。'
-mathJax: true
 ---
 
 在[《前端工程师职业生涯中的三个核心问题》](https://chungguo.me/core-issues-of-fe-developer)一文中，曾提到过「工具」的重要性。今天，就以去年开发的一个实际应用到工作中的浏览器插件为例，简单阐述下在这一方面的具体实践。

@@ -23,6 +23,10 @@ ol li{
   list-style: decimal
 }
 
+.toc li.toc-item {
+  list-style: none;
+}
+
 img {
   display: inline-block;
 }

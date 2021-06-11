@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Post } from '../types/post';
+import { Post } from 'chungguo/types/post';
 
 interface PostCards {
   posts: Post[]

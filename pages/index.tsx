@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Social from '../components/Social';
+import Social from 'chungguo/components/Social';
 
 export default function Index() {
   return (

@@ -4,7 +4,6 @@ export interface Meta {
   cover: string,
   excerpt: string,
   tag: string[],
-  mathJax?: boolean,
   draft?: boolean
 }
 

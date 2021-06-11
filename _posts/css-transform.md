@@ -3,7 +3,6 @@ title: 'CSS 变换背后的线性变换原理'
 date: '2020-03-26 18:29:00'
 cover: '/assets/blog/css-transform/cover.png'
 excerpt: '在看似简单，并被我们习以为常的 css 变换背后，隐藏着复杂的矩阵变换，本文尝试解释其中的数学原理'
-mathJax: true
 ---
 
 `CSS` 的 `transform` 属性允许开发者无需借助 `SVG`、`Canvas`、`Javascript` 等方式，仅仅通过 `CSS` 便能以尽可能简单的方式实现对指定标签元素的旋转（`rotate`）、缩放（`scale`）、倾斜（`skew`）、平移（`translate`）等操作，大大丰富了前端页面布局及动画效果的可能性。但更深层次而言，在这些直观易懂的属性背后却是更为高阶的 `matrix` 属性发挥着作用。如果能够正确理解 `matrix` 属性及其背后的线性变换原理，那么再回头看 `matrix` 属性时，便会有拨开云雾见青天的快感。
@@ -119,8 +118,7 @@ $$ \begin{cases} x+y+z = 6 \\\\ 0x + 2y+5z = -4 \\\\ 2x + 5y - z = 27  \end{case
 
 那么举例而言$\overrightarrow{OC}$的坐标计算如下：
 
-$$ \overrightarrow{OC} = 2 \overrightarrow{OA} + 2 \overrightarrow{OB} = 2 \begin{bmatrix}1  \\\\ 0 \end{bmatrix} + 2 \begin{bmatrix} 0  \\\\ 1
-\end{bmatrix} = \begin{bmatrix} 2 \times 1 + 2 \times 0  \\\\ 2 \times 0 + 2 \times 1 \end{bmatrix} = \begin{bmatrix} 2 \\\\ 2 \end{bmatrix} = 2 \begin{bmatrix} 1 \\\\ 1 \end{bmatrix} $$
+$$ \overrightarrow{OC} = 2 \overrightarrow{OA} + 2 \overrightarrow{OB} = 2 \begin{bmatrix}1  \\\\ 0 \end{bmatrix} + 2 \begin{bmatrix} 0  \\\\ 1 \end{bmatrix} = \begin{bmatrix} 2 \times 1 + 2 \times 0  \\\\ 2 \times 0 + 2 \times 1 \end{bmatrix} = \begin{bmatrix} 2 \\\\ 2 \end{bmatrix} = 2 \begin{bmatrix} 1 \\\\ 1 \end{bmatrix} $$
 
 由上式可知，向量$\overrightarrow{OC}$可以看作是$\overrightarrow{oa}$在$X$和$Y$轴方向放大两倍之后的结果，也就是保持坐标原点位置及坐标不动，将$X$轴和$Y$轴放大为原来的 2 倍，此时与正好相等。放大后，原来的基向量$\overrightarrow{i}$与$ \overrightarrow{j} $坐标分别变为了$\begin{bmatrix} 2 \\\\ 0 \end{bmatrix}$和$\begin{bmatrix} 0 \\\\ 2 \end{bmatrix}$，这个变换过程可以用矩阵表示为$\overrightarrow{OC} =  \begin{bmatrix} 2 \\\\ 2 \end{bmatrix} = \begin{bmatrix} 2  & 0  \\\\ 0  & 2 \end{bmatrix} \begin{bmatrix} 1 \\\\ 1 \end{bmatrix}$，即向量$\overrightarrow{oa} = \begin{bmatrix} 1 \\\\ 1 \end{bmatrix}$，经过矩阵$\begin{bmatrix} 2  & 0  \\\\ 0  & 2 \end{bmatrix}$变换由原坐标$\begin{bmatrix} 1 \\\\ 1 \end{bmatrix}$变成了$\begin{bmatrix} 2 \\\\ 2 \end{bmatrix}$，变换矩阵$\begin{bmatrix} 2  & 0  \\\\ 0  & 2 \end{bmatrix}$的第一列正好为变换后$\overrightarrow{i}$的坐标，第二列则为$\overrightarrow{j}$的坐标。我们追踪基向量的变化过程,$i: \begin{bmatrix} 1  \\\\ 0 \end{bmatrix}  => \begin{bmatrix} 2  \\\\ 0 \end{bmatrix}$，$j: \begin{bmatrix} 0  \\\\ 1 \end{bmatrix}  => \begin{bmatrix} 0  \\\\ 2 \end{bmatrix}$，所以此处，由变换后$\overrightarrow{i}$和$\overrightarrow{j}$向量坐标组成的矩阵$\begin{bmatrix} 2 & 0 \\\\ 0 & 2 \end{bmatrix}$表示放大 2 倍的缩放变换矩阵。
 $$ \overrightarrow{OC} = \begin{bmatrix} 2  & 0  \\\\ 0  & 2 \end{bmatrix} \begin{bmatrix} 1 \\\\ 1 \end{bmatrix} = 1 \begin{bmatrix} 2 \\\\ 0 \end{bmatrix} + 1 \begin{bmatrix} 0 \\\\ 2 \end{bmatrix} = \begin{bmatrix} 1 \times 2 + 1 \times 0  \\\\ 1 \times 0 + 1 \times 2 \end{bmatrix} = \begin{bmatrix}2 \\\\ 2 \end{bmatrix} $$ **（该计算过程非常重要，是可加性与数乘性的体现，也是其他复杂计算的基础）**

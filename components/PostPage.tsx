@@ -1,14 +1,20 @@
 import gfm from 'remark-gfm';
+import toc from '@jsdevtools/rehype-toc';
 import footnotes from 'remark-footnotes';
 import ReactMarkdown from 'react-markdown';
+import remarkMath from 'remark-math';
+import slug from 'rehype-slug';
+import rehypeKatex from 'rehype-katex';
 
-import Issue from './Issue';
-import CodeRender from './CodeRender';
-import ImageRender from './ImageRender';
-import BlockquoteRender from './BlockquoteRender';
-import markdownStyles from '../styles/markdown.module.css';
+import Issue from 'chungguo/components/Issue';
+import CodeRender from 'chungguo/components/CodeRender';
+import ImageRender from 'chungguo/components/ImageRender';
+import BlockquoteRender from 'chungguo/components/BlockquoteRender';
+import markdownStyles from 'chungguo/styles/markdown.module.css';
 
-import { Post } from '../types/post';
+import { Post } from 'chungguo/types/post';
+
+import 'katex/dist/katex.min.css'
 
 export default function PostPage(props: Post) {
   const { content, meta } = props;
@@ -23,6 +29,12 @@ export default function PostPage(props: Post) {
         remarkPlugins={[
           gfm,
           footnotes,
+          remarkMath,
+        ]}
+        rehypePlugins={[
+          slug,
+          toc,
+          rehypeKatex
         ]}
         children={content}
         components={{

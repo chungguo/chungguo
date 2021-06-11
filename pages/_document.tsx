@@ -1,4 +1,4 @@
-import { GA_TRACKING_ID } from '../shared/constants';
+import { GA_TRACKING_ID } from 'chungguo/shared/constants';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 
 class MyDocument extends Document {

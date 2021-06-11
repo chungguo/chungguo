@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Post } from '../types/post';
+import { Post } from 'chungguo/types/post';
 
 export default function HeroPost(props: Post) {
   const { meta, slug } = props;

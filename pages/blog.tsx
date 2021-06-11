@@ -1,10 +1,10 @@
 import Head from 'next/head';
-import { getAllPosts } from '../lib/post';
-import Container from '../components/Container';
-import Header from '../components/Header';
-import HeroPost from '../components/HeroPost';
-import PostCards from '../components/PostCards';
-import Footer from '../components/Footer';
+import { getAllPosts } from 'chungguo/lib/post';
+import Container from 'chungguo/components/Container';
+import Header from 'chungguo/components/Header';
+import HeroPost from 'chungguo/components/HeroPost';
+import PostCards from 'chungguo/components/PostCards';
+import Footer from 'chungguo/components/Footer';
 
 export async function getStaticProps() {
   const allPosts = getAllPosts()

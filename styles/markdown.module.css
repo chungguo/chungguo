@@ -25,18 +25,13 @@
 .markdown table td, .markdown table th {
   @apply px-4
 }
+
 .markdown a {
-  position: 'relative';
   @apply text-indigo-600 px-1
 }
 
 .markdown p,
 .markdown ul,
-.markdown ol,
-.markdown blockquote {
+.markdown ol {
   @apply my-4;
-}
-
-.markdown blockquote {
-  @apply flex text-gray-400
 }

@@ -1,3 +1,6 @@
 module.exports = {
-  experimental: { granularChunks: true }
+  experimental: { 
+    granularChunks: true,
+  },
+  webpack: (config) => config,
 }

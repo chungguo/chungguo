@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import Issue from './Issue';
 import CodeRender from './CodeRender';
 import ImageRender from './ImageRender';
+import BlockquoteRender from './BlockquoteRender';
 import markdownStyles from '../styles/markdown.module.css';
 
 import { Post } from '../types/post';
@@ -27,6 +28,7 @@ export default function PostPage(props: Post) {
         components={{
           code: CodeRender,
           img: ImageRender,
+          blockquote: BlockquoteRender,
         }}
       />
       <Issue />

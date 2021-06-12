@@ -53,6 +53,8 @@ $$报表 = 动态数据(后端) + 图表多样展示(前端)$$
 
 ![fiber](/assets/blog/chrome-extension-for-react-table/react-fiber.jpg)
 
+如上图所示，每一个`React DOM`元素都包含有以`__react`（视`ReactDOM`版本不同而不同）开头的属性，其中存储着当前`DOM`的`VirtualDOM`也即`FiberNode`信息。根据`FiberNode`的定义，其中`memoizedProps`中便存储着渲染当前元素所使用的`props`。
+
 有了这层映射关系，在外层，就不需要关心业务以及`React`的处理过程，只关注最后生成的`DOM`结果，因为结果的对错，是我们最关心的问题。然后，剩下的事情就是处理具体的业务场景，顺水推舟了。
 
 比如：
@@ -66,4 +68,4 @@ $$报表 = 动态数据(后端) + 图表多样展示(前端)$$
 
 ![example](/assets/blog/chrome-extension-for-react-table/example.png)
 
-此处只阐述了，具体思路，有了这一方面的思路与具体实践后，该思路也运用再了我们自动化测试中。后续有时间再一一道来。
+此处只阐述了，具体思路，有了这一方面的思路与具体实践后，该思路也运用在了目前正在主导的自动化测试中。后续有时间再一一道来。

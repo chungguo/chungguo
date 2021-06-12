@@ -1,3 +1,4 @@
+import React from 'react';
 import gfm from 'remark-gfm';
 import toc from '@jsdevtools/rehype-toc';
 import footnotes from 'remark-footnotes';
@@ -11,7 +12,6 @@ import CodeRender from 'chungguo/components/CodeRender';
 import ImageRender from 'chungguo/components/ImageRender';
 import BlockquoteRender from 'chungguo/components/BlockquoteRender';
 import markdownStyles from 'chungguo/styles/markdown.module.css';
-
 import { Post } from 'chungguo/types/post';
 
 import 'katex/dist/katex.min.css'

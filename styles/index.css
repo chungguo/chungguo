@@ -2,32 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.footnotes ol {
-  @apply text-gray-600 text-sm;
-}
-
-.footnotes hr {
-  @apply border-t border-dashed border-gray-200;
-}
-
-ol,
-ul {
-  @apply pl-6;
-  list-style-position: inside;
-}
-
-ul li {
-  list-style: disc;
-}
-
-ol li {
-  list-style: decimal
-}
-
-.toc li.toc-item {
-  list-style: none;
-}
-
 img {
   display: inline-block;
 }

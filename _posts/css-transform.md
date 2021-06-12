@@ -154,7 +154,8 @@ $$translate(m, n) = \begin{bmatrix} 1 & 0 & m \\\\ 0 & 1  & n \\\\ 0 & 0 & 1 \en
 
 目前火热的人脸识别技术便是通过线性化实现的。人可以很容易区分两张面容图是不是同一个人，而计算机只能将所有问题数字化，实现方案便是将人脸线性化。如果将人脸中较为重要的鼻子、眼睛、嘴巴等采样点数据通过某种算法数字化，并用坐标表示，那么当给出一张新的面容时，按照相同的方法算出当前面容图的坐标，通过结果坐标是否落在目标平面或平面附近，就可以判断是不是同一个人。
 
-## 8. 参考资料
+---
+参考资料
 
 1. [The CSS3 matrix() Transform for the Mathematically Challenged](https://www.useragentman.com/blog/2011/01/07/css3-matrix-transform-for-the-mathematically-challenged/)
 2. [CSS Transforms Module Level 1](https://www.w3.org/TR/css-transforms-1/)

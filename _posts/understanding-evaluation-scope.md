@@ -78,7 +78,8 @@ excerpt: '根据 `ECMAScript 2015` 语言规范的定义，执行上下文是抽
 
 如上，熟悉一张执行上下文组成图，便能够清晰搞懂执行上下文相关的概念、用途。
 
-## 参考资料
+---
+参考资料
 
 1. [understanding-execution-context-and-execution-stack-in-javascript](https://blog.bitsrc.io/understanding-execution-context-and-execution-stack-in-javascript-1c9ea8642dd0)
 

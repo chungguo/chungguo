@@ -150,7 +150,8 @@ clear：left | right | both | none；
 
 这种方法，也是大家推荐的比较好的方法。
 
-## 参考资料
+---
+参考资料
 
 1. [那些年我们一起清除过的浮动](http://www.iyunlu.com/view/css-xhtml/55.html "那些年我们一起清除过的浮动")
 

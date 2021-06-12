@@ -3,35 +3,66 @@
 }
 
 .markdown h1, .markdown h2, .markdown h3, .markdown h4 {
-  @apply font-semibold
+  @apply font-semibold mb-4 leading-snug;
 }
 
 .markdown h1 {
-  @apply text-4xl mt-8 mb-4 leading-snug;
+  @apply text-4xl mt-8;
 }
 
 .markdown h2 {
-  @apply text-3xl mt-6 mb-4 leading-snug;
+  @apply text-3xl mt-6;
 }
 
 .markdown h3 {
-  @apply text-2xl mt-4 mb-4 leading-snug;
+  @apply text-2xl mt-4;
 }
 
 .markdown table, .markdown table td, .markdown table th {
-  @apply border border-gray-800 
+  @apply border border-gray-800;
 }
 
 .markdown table td, .markdown table th {
-  @apply px-4
+  @apply px-4;
 }
 
 .markdown a {
-  @apply text-indigo-600 px-1
+  @apply text-indigo-600 px-1;
 }
 
 .markdown p,
 .markdown ul,
 .markdown ol {
   @apply my-4;
+}
+
+.markdown .footnotes ol {
+  @apply text-gray-600 text-sm;
+}
+
+.markdown .footnotes hr {
+  @apply border-t border-dashed border-gray-200;
+}
+
+.markdown ol, .markdown ul {
+  @apply pl-6;
+  list-style-position: inside;
+}
+
+.markdown ul  li {
+  list-style: disc;
+}
+
+.markdown ol  li {
+  list-style: decimal;
+}
+
+.markdown nav > ol:not(:empty) {
+  padding: 1em;
+  width: max-content;
+  @apply border-gray-100 border-2 rounded-md;
+}
+
+.markdown nav li {
+  list-style: none;
 }

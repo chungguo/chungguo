@@ -24,6 +24,7 @@ jobs:
       run: (pm2 delete chungguo && pm2 start yarn --name chungguo -- start) || pm2 start yarn --name chungguo -- start
 
   OracleSeoulFD2:
+    needs: OracleSeoulFD1
     defaults:
       run:
         shell: bash

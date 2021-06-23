@@ -54,20 +54,20 @@ module.exports = {
     }
     return config;
   },
-  async headers() {
-    return [
-      {
-        source: '/',
-        headers: securityHeaders
-      },
-      {
-        source: '/blog',
-        headers: securityHeaders
-      },
-      {
-        source: '/:slug*',
-        headers: securityHeaders
-      }
-    ]
-  }
+  // async headers() {
+  //   return [
+  //     {
+  //       source: '/',
+  //       headers: securityHeaders
+  //     },
+  //     {
+  //       source: '/blog',
+  //       headers: securityHeaders
+  //     },
+  //     {
+  //       source: '/:slug*',
+  //       headers: securityHeaders
+  //     }
+  //   ]
+  // }
 }

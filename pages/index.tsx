@@ -10,7 +10,7 @@ export default function Index() {
             <img className="cursor-pointer w-28 lg:w-40 md:32 inline rounded-full bg-gray-200" src="./chungguo.jpg" alt="avatar" />
           </Link>
           <h2 className="text-3xl sm:text-4xl  lg:text-6xl  leading-none font-extrabold tracking-tight text-gray-900 mt-10 mb-8 sm:mt-14 sm:mb-10">
-            <p>🖖 Hi, I'm chungguo</p>
+            <p>🖖 Hi, I&apos;m chungguo</p>
             <p><span className="text-indigo-600">Coder, </span>Amateur Photographer.</p>
           </h2>
         </article>

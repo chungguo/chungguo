@@ -8,7 +8,7 @@ export default function Footer() {
         Make with <Link href="https://nextjs.org">Next.js</Link>.
       </p>
       <p>
-        <img className="inline-block mr-1 h-3" src="/assets/common/by.svg" />
+        <img className="inline-block mr-1 h-3" src="/assets/common/by.svg" alt="by" />
         Except where otherwise noted, content on this site is licensed under a
         <Link href="https://creativecommons.org/licenses/by/4.0/"> CC BY 4.0 </Link>
         license.

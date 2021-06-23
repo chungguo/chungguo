@@ -37,9 +37,15 @@ const securityHeaders = [
     key: 'Strict-Transport-Security',
     value: 'max-age=31536000; includeSubDomains; preload'
   },
+  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy
+  {
+    key: 'Permissions-Policy',
+    value: 'camera=(), microphone=(), geolocation=()'
+  }
 ]
 
 module.exports = {
+  poweredByHeader: false,
   webpack: (config) => {
     config.resolve.alias = {
       ...config.resolve.alias,

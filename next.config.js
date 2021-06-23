@@ -2,7 +2,8 @@ const path = require("path");
 
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-inline' *.google-analytics.com;
+  script-src 'self' 'unsafe-inline' 'unsafe-eval' *.google-analytics.com *.googletagmanager.com;
+  img-src 'self' *.google-analytics.com;
   style-src 'self' 'unsafe-inline';
 `;
 

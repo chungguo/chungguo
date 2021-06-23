@@ -2,7 +2,7 @@ import matter from 'gray-matter';
 import { join } from 'path';
 import { readFileSync, readdirSync } from 'fs';
 
-const postsDirectory = join(process.cwd(), './_posts');
+const postsDirectory = join(process.cwd(), './posts');
 
 /** 读取_post目录下所有md文件名称 */
 export function getPostSlugs() {

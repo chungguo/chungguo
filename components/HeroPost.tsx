@@ -7,7 +7,7 @@ export default function HeroPost(props: Post) {
 
   return (
     <section className="grid sm:grid-cols-1 md:grid-cols-2 gap-x-12 my-12">
-      <Link as={`/${slug}`} href="/[slug]">
+      <Link as={`/${slug}`} href="/[slug]" passHref>
         <img
           className="m-0 rounded-lg cursor-pointer object-cover w-full h-80 bg-gray-200"
           src={cover}
@@ -15,7 +15,7 @@ export default function HeroPost(props: Post) {
         />
       </Link>
       <div className="mt-4">
-        <Link as={`/${slug}`} href="/[slug]">
+        <Link as={`/${slug}`} href="/[slug]" passHref>
           <h3 className="lg:text-5xl md:text-3xl text-3xl font-semibold cursor-pointer">{title}</h3>
         </Link>
         <time className="mt-4 block" dateTime={date}>{date}</time>

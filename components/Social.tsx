@@ -5,7 +5,7 @@ interface Props {
 }
 
 const Blog = () => {
-  return <Link href="/blog">
+  return <Link href="/blog" passHref>
     <svg width="20" height="20" fill="currentColor" className="transform hover:scale-125">
       <path fill="none" d="M-1-1h22v22H-1z" />
       <g>
@@ -20,7 +20,7 @@ const Blog = () => {
 
 const Instagram = () => {
   return (
-    <a href="https://www.instagram.com/chungguo.gc/" target="_blank" className="transform hover:scale-125">
+    <a href="https://www.instagram.com/chungguo.gc/" target="_blank" rel="noreferrer" className="transform hover:scale-125">
       <svg width="20" height="20" fill="currentColor">
         <path fill="none" d="M-1-1h22v22H-1z" />
         <g>
@@ -33,7 +33,7 @@ const Instagram = () => {
 
 const Twitter = () => {
   return (
-    <a href="https://twitter.com/chungguo_me/" target="_blank" className="transform hover:scale-125">
+    <a href="https://twitter.com/chungguo_me/" target="_blank" rel="noreferrer" className="transform hover:scale-125">
       <svg width="20" height="20" fill="currentColor">
         <path fill="none" d="M-1-1h22v22H-1z" />
         <g>
@@ -46,7 +46,7 @@ const Twitter = () => {
 
 const Github = () => {
   return (
-    <a href="https://github.com/chungguo/chungguo.github.io" target="_blank" className="transform hover:scale-125">
+    <a href="https://github.com/chungguo/chungguo.github.io" target="_blank" rel="noreferrer" className="transform hover:scale-125">
       <svg width="20" height="20" fill="currentColor">
         <path fill="none" d="M-1-1h22v22H-1z" /><g>
           <path stroke="null" d="M10 1.189a9.034 9.034 0 0 0-2.856 17.606c.452.082.617-.197.617-.435 0-.215-.008-.927-.013-1.682-2.512.546-3.043-1.065-3.043-1.065-.411-1.043-1.003-1.321-1.003-1.321-.821-.56.062-.55.062-.55.907.064 1.385.932 1.385.932.806 1.38 2.115.981 2.629.75.082-.583.316-.982.573-1.207-2.005-.228-4.115-1.004-4.115-4.465 0-.987.353-1.792.93-2.425-.093-.229-.404-1.148.089-2.391 0 0 .757-.243 2.484.926A8.6 8.6 0 0 1 10 5.558c.768.003 1.54.104 2.262.305 1.723-1.17 2.482-.926 2.482-.926.494 1.244.183 2.162.09 2.39.58.633.93 1.438.93 2.425 0 3.47-2.114 4.234-4.126 4.458.325.28.613.83.613 1.672 0 1.208-.012 2.181-.012 2.48 0 .24.164.52.622.433A9.034 9.034 0 0 0 10 1.189z" />

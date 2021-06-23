@@ -1,4 +1,5 @@
 import Link from 'next/link';
+
 import { Post } from 'chungguo/types/post';
 
 interface PostCards {
@@ -11,7 +12,7 @@ function PostCard(props: Post) {
 
   return (
     <section>
-      <Link as={`/${slug}`} href="/[slug]">
+      <Link as={`/${slug}`} href="/[slug]" passHref>
         <section className="cursor-pointer">
           <img src={cover} alt={title} className="object-cover rounded-lg w-full h-64 bg-gray-200" />
           <h3 className="line-clamp-1 text-2xl font-semibold mt-4">{title}</h3>

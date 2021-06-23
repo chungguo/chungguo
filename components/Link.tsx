@@ -4,6 +4,7 @@ export default function Link(props) {
       className="text-indigo-600 font-semibold"
       target="_blank"
       href={props.href}
+      rel="noreferrer"
     >
       {props.children}
     </a>

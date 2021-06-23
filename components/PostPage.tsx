@@ -43,13 +43,14 @@ export default function PostPage(props: Post) {
             }
           }]
         ]}
-        children={content}
         components={{
           code: CodeRender,
           img: ImageRender,
           blockquote: BlockquoteRender,
         }}
-      />
+      >
+        {content}
+      </ReactMarkdown>
       <Issue />
     </article>
   )

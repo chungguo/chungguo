@@ -17,12 +17,12 @@ export default function Index() {
             </section>
           </div>
           <p className="text-base text-gray-500 mt-8 pr-10">
-            Currently, I am a front-end developer with React and Typescript as my main technology stack. But I've also worked with Vue and developed large server-side projects in Nodejs for a few years. In my spare time, I often travel around the city I live in to make life more interesting.
+            Currently, I am a front-end developer with React and Typescript as my main technology stack. But I&apos;ve also worked with Vue and developed large server-side projects in Nodejs for a few years. In my spare time, I often travel around the city I live in to make life more interesting.
           </p>
         </section>
         <section className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center">
           <Link href="/blog" passHref>
-            <a className="block font-normal text-center sm:w-auto bg-blue-600 hover:bg-blue-500 text-white text-lg leading-6 py-3 px-16 rounded-md focus:outline-none transition-colors duration-200">Visit Blog</a>
+            <a className="block font-normal text-center sm:w-auto bg-indigo-600 hover:bg-indigo-500 text-white text-lg leading-6 py-3 px-16 rounded-md focus:outline-none transition-colors duration-200">Visit Blog</a>
           </Link>
         </section>
       </main>

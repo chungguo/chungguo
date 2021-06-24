@@ -61,6 +61,10 @@ module.exports = {
         headers: securityHeaders
       },
       {
+        source: '/_next/:static*',
+        headers: securityHeaders
+      },
+      {
         source: '/blog',
         headers: securityHeaders
       },

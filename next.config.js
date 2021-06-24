@@ -1,6 +1,4 @@
 const path = require("path");
-const { execSync } = require("child_process");
-const lastCommitCommand = "git rev-parse HEAD";
 
 const ContentSecurityPolicy = `
   default-src 'self';
@@ -58,8 +56,8 @@ module.exports = {
     return config;
   },
   async generateBuildId () {
+    return process.env.GITHUB_SHA || 'chungguo';
     // https://nextjs.org/docs/api-reference/next.config.js/configuring-the-build-id
-    return execSync(lastCommitCommand).toString().trim();
   },
   async headers() {
     return [

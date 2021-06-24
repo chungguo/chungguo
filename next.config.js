@@ -6,6 +6,7 @@ const ContentSecurityPolicy = `
   script-src 'self' 'unsafe-inline' 'unsafe-eval' *.googletagmanager.com *.google-analytics.com;
   img-src 'self' data: *.google-analytics.com;
   style-src 'self' 'unsafe-inline';
+  connect-src 'self' *.google-analytics.com;
 `;
 
 const securityHeaders = [

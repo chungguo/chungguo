@@ -27,7 +27,7 @@
 }
 
 .markdown a {
-  @apply text-indigo-600 px-1;
+  @apply text-blue-600 px-1;
 }
 
 .markdown p,

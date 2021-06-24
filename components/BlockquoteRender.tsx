@@ -16,7 +16,7 @@ export default function BlockquoteRender(props) {
 
 
   return (
-    <blockquote className="border-l-4 border-indigo-600 text-gray-400" {...other}>
+    <blockquote className="border-l-4 border-blue-600 text-gray-400" {...other}>
       {childrenWithProps}
     </blockquote>
   )

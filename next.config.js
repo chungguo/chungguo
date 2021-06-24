@@ -48,13 +48,15 @@ const securityHeaders = [
 
 module.exports = {
   poweredByHeader: false,
-  distDir: '_next',
   webpack: (config) => {
     config.resolve.alias = {
       ...config.resolve.alias,
       'chungguo': path.resolve(__dirname),
     }
     return config;
+  },
+  async generateBuildId () {
+    return process.env.BUILD_ID || Date.now().toString()
   },
   async headers() {
     return [

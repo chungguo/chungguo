@@ -48,6 +48,7 @@ const securityHeaders = [
 
 module.exports = {
   poweredByHeader: false,
+  distDir: '_next',
   webpack: (config) => {
     config.resolve.alias = {
       ...config.resolve.alias,
@@ -59,10 +60,6 @@ module.exports = {
     return [
       {
         source: '/',
-        headers: securityHeaders
-      },
-      {
-        source: '/_next/:static*',
         headers: securityHeaders
       },
       {

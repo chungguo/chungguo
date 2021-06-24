@@ -34,15 +34,23 @@ export default function PostPage(props: Post) {
         rehypePlugins={[
           slug,
           toc,
-          rehypeKatex
+          [rehypeKatex, {
+            strict: (errorCode) => {
+              if (errorCode === 'unicodeTextInMathMode') {
+                return 'ignore';
+              }
+              return 'warn';
+            }
+          }]
         ]}
-        children={content}
         components={{
           code: CodeRender,
           img: ImageRender,
           blockquote: BlockquoteRender,
         }}
-      />
+      >
+        {content}
+      </ReactMarkdown>
       <Issue />
     </article>
   )

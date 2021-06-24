@@ -55,14 +55,14 @@ module.exports = {
     }
     return config;
   },
+  async generateBuildId () {
+    return process.env.GITHUB_SHA || 'chungguo';
+    // https://nextjs.org/docs/api-reference/next.config.js/configuring-the-build-id
+  },
   async headers() {
     return [
       {
         source: '/',
-        headers: securityHeaders
-      },
-      {
-        source: '/_next/:static*',
         headers: securityHeaders
       },
       {

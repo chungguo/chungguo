@@ -1,7 +1,7 @@
 ---
 title: '前端工程师职业生涯中的三个核心问题'
 date: '2020-06-25 17:00:00'
-cover: 'assets/blog/core-issues-of-fe-developer/cover.png'
+cover: 'assets/blog/core-issues-of-fe-developer/cover.jpg'
 excerpt: '自 2016 年正式参加工作，至今已四年有余。和普通的大多数人一样，无论在何处任职，当前正在解决什么问题，似乎都曾陷入一种循环当中：开始 -> 熟练 -> 厌倦 -> 再开始'
 ---
 

@@ -1,7 +1,8 @@
 ---
 title: 'CSS 变换背后的线性变换原理'
 date: '2020-03-26 18:29:00'
-cover: '/assets/blog/css-transform/cover.png'
+cover: '/assets/blog/css-transform/cover.jpg'
+recommend: true
 excerpt: '在看似简单，并被我们习以为常的 css 变换背后，隐藏着复杂的矩阵变换，本文尝试解释其中的数学原理'
 ---
 

@@ -1,12 +1,17 @@
-export default function Link(props) {
+import Link from 'next/link';
+
+interface Props {
+  href: string,
+  children: React.ReactChild,
+}
+
+export default function CustomLink(props: Props) {
+  const { href, children } = props;
   return (
-    <a
-      className="text-blue-600 font-semibold"
-      target="_blank"
-      href={props.href}
-      rel="noreferrer"
-    >
-      {props.children}
-    </a>
+    <Link passHref href={href}>
+      <a className="text-black font-semibold bg-underline-blue" target="_blank" rel="noreferrer">
+        {children}
+      </a>
+    </Link>
   );
 }

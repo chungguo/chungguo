@@ -17,7 +17,7 @@ export default function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <title>chungguo</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, maximum-scale=1, minimum-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
       </Head>
       <Component {...pageProps} />
     </>

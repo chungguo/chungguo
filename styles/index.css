@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .bg-underline-blue {
+    background-image: linear-gradient(180deg, transparent 70%, rgba(59, 130, 246, .4) 0);
+  }
+}
+
 img {
   display: inline-block;
 }

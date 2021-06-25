@@ -1,11 +1,12 @@
 import Link from 'next/link';
+import Chungguo from 'chungguo/public/chungguo.svg';
 
 export default function Avatar() {
   return (
     <Link href="/" passHref>
       <a>
         <section className="flex items-center cursor-pointer">
-          <img src="./chungguo.jpg" className="cover w-8 rounded-full py-4 mx-4" alt="avatar" />
+          <span className="w-8 mx-4"><Chungguo /></span>
           <span className="font-semibold text-base">CHUNGGUO</span>
         </section>
       </a>

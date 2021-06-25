@@ -2,6 +2,8 @@
 title: 'React FiberNode 在业务中的具体应用'
 date: '2021-03-21 23:01:00'
 cover: '/assets/blog/chrome-extension-for-react-table/cover.png'
+recommend: true
+tag: [ 'React' ]
 excerpt: '通过探究 React Devtools，了解到 DOM 与 Component 之间的映射关系，抽丝剥茧，逐渐学习了 React FiberNode 相关内容，并将相关知识应到到实际开发中，优雅地解决了业务中地实际问题。'
 ---
 

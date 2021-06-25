@@ -50,15 +50,21 @@ const securityHeaders = [
 module.exports = {
   poweredByHeader: false,
   webpack: (config) => {
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ['@svgr/webpack'],
+    });
+
     config.resolve.alias = {
       ...config.resolve.alias,
       'chungguo': path.resolve(__dirname),
-    }
+    };
+
     return config;
   },
-  async generateBuildId () {
-    return process.env.GITHUB_SHA || 'chungguo';
+  async generateBuildId() {
     // https://nextjs.org/docs/api-reference/next.config.js/configuring-the-build-id
+    return process.env.GITHUB_SHA || 'chungguo';
   },
   async headers() {
     return [

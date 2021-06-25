@@ -1,5 +1,4 @@
 import Link from 'next/link';
-
 import { Post } from 'chungguo/types/post';
 
 interface PostCards {
@@ -11,17 +10,17 @@ function PostCard(props: Post) {
   const { title, date, cover, excerpt } = meta;
 
   return (
-    <section>
-      <Link as={`/${slug}`} href="/[slug]" passHref>
-        <a>
-          <section className="cursor-pointer">
-            <img src={cover} alt={title} className="object-cover rounded-lg w-full h-64 bg-gray-200" />
-            <h3 className="line-clamp-1 text-2xl font-semibold mt-4">{title}</h3>
-          </section>
-        </a>
-      </Link>
-      <time dateTime={date} className="block mt-1">{date}</time>
-      <p className="line-clamp-3 mt-2 text-gray-700">{excerpt}</p>
+    <section className="bg-white">
+      <img src={cover} alt={title} className="object-cover w-full bg-gray-200 h-48" />
+      <section className="px-6 py-6">
+        <Link as={`/${slug}`} href="/[slug]" passHref>
+          <a className="cursor-pointer">
+            <h3 className="line-clamp-1 text-xl font-semibold">{title}</h3>
+          </a>
+        </Link>
+        <time dateTime={date} className="block mt-1 text-sm text-gray-400">{date}</time>
+        <p className="line-clamp-3 mt-2 text-gray-600">{excerpt}</p>
+      </section>
     </section >
   )
 }
@@ -34,7 +33,7 @@ export default function PostCards(props: PostCards) {
   }
 
   return (
-    <section className="grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3 gap-x-8 gap-y-12 my-12">
+    <section className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10 my-12">
       {
         posts.map(post => {
           const { slug } = post;

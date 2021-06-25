@@ -1,7 +1,7 @@
 ---
 title: '如何理解 CSS 中的 float 属性'
 date: '2015-03-09 13:34:45'
-cover: 'assets/blog/css-float/cover.png'
+cover: 'assets/blog/css-float/cover.jpg'
 excerpt: '从浅层面简单介绍 CSS 的 float 属性'
 ---
 

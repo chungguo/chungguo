@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 
 import Header from 'chungguo/components/Header';
 import PostPage from 'chungguo/components/PostPage';
-import Container from 'chungguo/components/Container';
 import ErrorPage from 'chungguo/components/ErrorPage';
 import Footer from 'chungguo/components/Footer';
 
@@ -45,17 +44,17 @@ export default function Post({ post }) {
   return (
     <>
       <Header />
-      <Container>
-        <Head>
-          <title>{title}</title>
-          <meta property="og:type" content="article" />
-          <meta property="og:title" content={title} />
-          <meta property="og:image" content={cover} />
-          <meta property="og:url" content={`https://chungguo.me/${slug}`} />
-          <meta property="og:description" content={excerpt} />
-        </Head>
+      <Head>
+        <title>{title}</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={title} />
+        <meta property="og:image" content={cover} />
+        <meta property="og:url" content={`https://chungguo.me/${slug}`} />
+        <meta property="og:description" content={excerpt} />
+      </Head>
+      <article className="max-w-7xl mx-auto px-5 sm:px-6">
         <PostPage slug={slug} meta={meta} content={content} />
-      </Container>
+      </article>
       <Footer />
     </>
   )

@@ -4,6 +4,7 @@ export interface Meta {
   cover: string,
   excerpt: string,
   tag: string[],
+  recommend?: boolean,
   draft?: boolean
 }
 

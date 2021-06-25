@@ -1,4 +1,4 @@
-const { indigo } = require('tailwindcss/colors')
+const { teal } = require('tailwindcss/colors')
 
 module.exports = {
   corePlugins: {
@@ -11,10 +11,26 @@ module.exports = {
   ],
   darkMode: 'class',
   theme: {
+    fontFamily: {
+      'custom': [ 
+        'Inter',
+        '-apple-system',
+        'BlinkMacSystemFont',
+        'Segoe UI',
+        'Roboto',
+        'Oxygen',
+        'Ubuntu',
+        'Cantarell',
+        'Fira Sans',
+        'Droid Sans',
+        'Helvetica Neue',
+        'sans-serif',
+      ]
+    },
     extend: {
       colors: {
         black: '#121212',
-        indigo,
+        teal,
       },
       lineHeight: {
         tight: 1.2,

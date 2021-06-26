@@ -5,7 +5,6 @@ import Seo from 'chungguo/components/Seo';
 import Header from 'chungguo/components/Header';
 import PostPage from 'chungguo/components/PostPage';
 import ErrorPage from 'chungguo/components/ErrorPage';
-import Footer from 'chungguo/components/Footer';
 
 import { getAllPosts, getPostBySlug } from 'chungguo/lib/post';
 
@@ -49,7 +48,6 @@ export default function Post({ post }) {
         <Seo title={title} cover={cover} url={`https://chungguo.me/${slug}`} description={excerpt}/>
       </Head>
       <PostPage slug={slug} meta={meta} content={content} />
-      <Footer />
     </>
   )
 }

@@ -1,14 +1,14 @@
 import Link from 'next/link';
-import Footer from 'chungguo/components/Footer';
 import Hero from 'chungguo/public/assets/common/hero.svg';
 import RightArrow from 'chungguo/public/assets/common/right-arrow.svg';
 import Chungguo from 'chungguo/public/chungguo.svg';
+import { SELF_BREIF } from 'chungguo/shared/constants';
 
 export default function Index() {
   return (
     <article className="flex flex-col min-h-screen overflow-hidden">
       <header className="w-full bg-white">
-        <div className="max-w-6xl mx-auto px-5 sm:px-6">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6">
           <div className="flex items-center justify-between h-16 md:h-20">
             <div className="w-10 h-10 relative">
               <Link href="/" passHref>
@@ -42,12 +42,9 @@ export default function Index() {
               <Hero />
             </section>
           </div>
-          <p className="text-base text-gray-500 sm:pr-10 md:pr-20">
-            Currently, I am a front-end developer with React and Typescript as my main technology stack. But I&apos;ve also worked with Vue and developed large server-side projects in Nodejs for a few years. In my spare time, I often travel around the city I live in to make life more interesting.
-          </p>
+          <p className="text-base text-gray-500 sm:pr-10 md:pr-20">{SELF_BREIF}</p>
         </section>
       </main>
-      <Footer />
     </article>
   )
 }

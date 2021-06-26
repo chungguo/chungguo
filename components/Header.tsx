@@ -14,12 +14,12 @@ export default function Header() {
           <nav className="flex flex-grow">
             <ul className="flex flex-grow justify-end flex-wrap items-center text-gray-600">
               <li>
-                <Link href="/blog" passHref>
+                <Link href="/about" passHref>
                   <a className="px-5">ABOUT</a>
                 </Link>
               </li>
               <li>
-                <Link href="/blog" passHref>
+                <Link href="/rss.xml" passHref>
                   <a className="px-5">RSS</a>
                 </Link>
               </li>

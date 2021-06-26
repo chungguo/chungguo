@@ -1,5 +1,6 @@
 import { GA_TRACKING_ID } from 'chungguo/shared/constants';
 import Seo from 'chungguo/components/Seo';
+import Footer from 'chungguo/components/Footer';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 
 class MyDocument extends Document {
@@ -17,6 +18,7 @@ class MyDocument extends Document {
         </Head>
         <body>
           <Main />
+          <Footer />
           <NextScript />
         </body>
       </Html>

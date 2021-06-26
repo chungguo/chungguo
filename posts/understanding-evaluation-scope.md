@@ -2,6 +2,7 @@
 title: '一图看懂 JavaScript 执行上下文'
 date: '2020-02-29 13:29:00'
 cover: 'assets/blog/understanding-evaluation-scope/cover.png'
+tag: [ 'JavaScript' ]
 excerpt: '根据 `ECMAScript 2015` 语言规范的定义，执行上下文是抽象概念上的代码执行环境，`ECMAScript` 实现（通常来说就是浏览器，更具体而言就是 `V8` 引擎）用来记录代码运行时的值。一言以蔽之，`JavaScript` 无论何时都是在执行上下文中运行，且代码运行时，最多只能存在一个执行上下文。'
 ---
 

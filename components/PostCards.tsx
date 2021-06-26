@@ -7,12 +7,13 @@ interface PostCards {
 
 function PostCard(props: Post) {
   const { slug, meta } = props;
-  const { title, date, cover, excerpt } = meta;
+  const { title, date, cover, excerpt, tag = [] } = meta;
 
   return (
     <section className="bg-white">
       <img src={cover} alt={title} className="object-cover w-full bg-gray-200 h-48" />
-      <section className="px-6 py-6">
+      <section className="px-6 py-4">
+        <i className="block text-sm mb-2 text-gray-500">{tag.join(',')}</i>
         <Link as={`/${slug}`} href="/[slug]" passHref>
           <a className="cursor-pointer">
             <h3 className="line-clamp-1 text-xl font-semibold">{title}</h3>

@@ -18,12 +18,13 @@ import 'katex/dist/katex.min.css'
 
 export default function PostPage(props: Post) {
   const { content, meta } = props;
-  const { title, date } = meta;
+  const { title, date, tag = [] } = meta;
 
   return (
-    <article className="py-4 line-numbers max-w-screen-lg mx-auto">
-      <h1 className="text-3xl font-semibold">{title}</h1>
-      <time className="block mt-4 text-gray-500 text-base" dateTime={date}>{date}</time>
+    <article className="max-w-4xl mx-auto px-6 sm:px-6 py-6 line-number">
+      <h1 className="text-3xl mb-4 font-semibold">{title}</h1>
+      <i className="block text-sm text-gray-500">{tag.join(',')}</i>
+      <time className="block text-sm text-gray-500" dateTime={date}>{date}</time>
       <ReactMarkdown
         className={markdownStyles['markdown']}
         remarkPlugins={[
@@ -35,7 +36,7 @@ export default function PostPage(props: Post) {
           slug,
           toc,
           [rehypeKatex, {
-            strict: (errorCode) => {
+            strict: (errorCode: string) => {
               if (errorCode === 'unicodeTextInMathMode') {
                 return 'ignore';
               }

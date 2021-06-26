@@ -31,9 +31,6 @@ module.exports = {
       colors: {
         black: '#121212',
         teal,
-      },
-      lineHeight: {
-        tight: 1.2,
       }
     },
   },

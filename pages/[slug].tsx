@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
+import Seo from 'chungguo/components/Seo';
 import Header from 'chungguo/components/Header';
 import PostPage from 'chungguo/components/PostPage';
 import ErrorPage from 'chungguo/components/ErrorPage';
@@ -45,16 +46,9 @@ export default function Post({ post }) {
     <>
       <Header />
       <Head>
-        <title>{title}</title>
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content={title} />
-        <meta property="og:image" content={cover} />
-        <meta property="og:url" content={`https://chungguo.me/${slug}`} />
-        <meta property="og:description" content={excerpt} />
+        <Seo title={title} cover={cover} url={`https://chungguo.me/${slug}`} description={excerpt}/>
       </Head>
-      <article className="max-w-7xl mx-auto px-5 sm:px-6">
-        <PostPage slug={slug} meta={meta} content={content} />
-      </article>
+      <PostPage slug={slug} meta={meta} content={content} />
       <Footer />
     </>
   )

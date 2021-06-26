@@ -2,6 +2,7 @@
 title: '《 JavaScript 高级程序设计》读书笔记'
 date: '2014-12-03 18:29:20'
 cover: '/assets/blog/javascript-notes/cover.png'
+tag: [ 'JavaScript' ]
 excerpt: '以脑图的形式记录了一些在阅读《 JavaScript 高级程序设计》经典书籍时留下的笔记'
 ---
 

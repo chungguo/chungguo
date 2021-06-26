@@ -1,7 +1,7 @@
 interface Props {
   url?: string,
   title?: string,
-  image?: string,
+  cover?: string,
   description?: string,
 }
 
@@ -9,7 +9,7 @@ export default function Seo(props: Props) {
   const {
     url = 'https://chungguo.me',
     title = 'chungguo',
-    image = 'https://chungguo.me/chungguo.jpg',
+    cover = 'https://chungguo.me/chungguo.jpg',
     description = 'I\'m chungguo, coder, amateur photographer.',
   } = props;
 
@@ -24,7 +24,7 @@ export default function Seo(props: Props) {
       <meta name="og:title" content={title} />
       <meta name="og:type" content="article" />
       <meta name="og:url" content={url} />
-      <meta name="og:image" content={image} />
+      <meta name="og:image" content={cover} />
       <meta name="og:site_name" content="chungguo" />
       <meta property="og:description" content={description} />
       <meta name="og:region" content="CN" />

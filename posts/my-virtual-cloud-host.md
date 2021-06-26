@@ -1,7 +1,7 @@
 ---
 title: '我的虚拟云主机'
 date: '2020-05-22 12:00:00'
-tag: ['Linux', 'Blog']
+tag: [ 'Linux' ]
 cover: '/assets/blog/my-virtual-cloud-host/cover.jpg'
 excerpt: '一台主机，可以帮助我们拥有「完整」的网络环境，对外提供个性化服务，了解 Linux 系统及服务搭建'
 ---

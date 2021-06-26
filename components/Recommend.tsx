@@ -1,16 +1,15 @@
 import Link from 'next/link';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Pagination } from 'swiper/core';
+import SwiperCore, { Pagination, Autoplay } from 'swiper/core';
 import { Post } from 'chungguo/types/post';
 
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
 
-SwiperCore.use([Pagination]);
-
-const paginationOptions = {
-  clickable: true,
-};
+SwiperCore.use([
+  Autoplay,
+  Pagination,
+]);
 
 export default function Recommend(props: {
   posts: Post[]
@@ -20,7 +19,16 @@ export default function Recommend(props: {
 
   return (
     <article className="w-full">
-      <Swiper pagination={paginationOptions} className="h-96 relative">
+      <Swiper 
+        className="h-96 relative"
+        loop={true}
+        pagination={{
+          clickable: true,
+        }}
+        autoplay={{ 
+          delay: 3000
+        }} 
+      >
         {
           posts.map((post, idx) => {
             const { meta, slug } = post;

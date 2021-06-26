@@ -5,6 +5,7 @@ import Social from 'chungguo/components/Social';
 import Tencent from 'chungguo/public/assets/common/tencent-logo.svg';
 import Alibaba from 'chungguo/public/assets/common/alibaba-logo.svg';
 import Meituan from 'chungguo/public/assets/common/meituan-logo.svg';
+import Happy from 'chungguo/public/assets/common/blushy-happy.svg';
 
 const experience = [{
   time: '2019.10 至今',
@@ -28,8 +29,11 @@ export default function About() {
     <article className="min-h-screen">
       <Header />
       <main className="sm:max-w-2xl mx-auto px-5 pt-10 sm:px-6">
-        <section className="mb-4">
-          <h1 className="font-semibold text-lg">Experience<br />工作履历</h1>
+        <section className="w-20 m-auto">
+          <Happy />
+        </section>
+        <section className="mb-4 flex flex-col items-center">
+          <h1 className="font-semibold text-lg text-center">Experience<br />工作履历</h1>
           <ul className="ml-5">
             {
               experience.map((item, idx) => (
@@ -51,11 +55,11 @@ export default function About() {
             }
           </ul>
         </section>
-        <section className="mb-4">
+        <section className="mb-10 flex flex-col items-center">
           <h1 className="font-semibold text-lg mb-4">Contact<br />社交账号</h1>
           <Social />
         </section>
-        <section>
+        <section className="text-center">
           <h1 className="font-semibold text-lg mb-4">Acknowledgements<br />致谢</h1>
           <p>感谢<Link href="https://www.opendoodles.com/"><a>opendoodles</a></Link>提供本站所有插画</p>
         </section>

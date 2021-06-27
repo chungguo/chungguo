@@ -1,3 +1,6 @@
+import Head from 'next/head';
+import { GA_TRACKING_ID } from 'chungguo/shared/constants';
+
 interface Props {
   url?: string,
   title?: string,
@@ -14,8 +17,9 @@ export default function Seo(props: Props) {
   } = props;
 
   return (
-    <>
-      <meta char-set="UTF-8" />
+    <Head>
+      <title key="title">{title}</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" key="viewport" />
       <meta httpEquiv="x-ua-compatible" content="ie=edge" />
       <meta name="keywords" content="chungguo" />
       <meta name="description" content={description} />
@@ -35,6 +39,12 @@ export default function Seo(props: Props) {
       <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png" />
       <link rel="manifest" href="./site.webmanifest" />
       <link rel="alternate" type="application/rss+xml" title="RSS feed for blog posts" href="https://chungguo.me/rss.xml" />
-    </>
+      <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '${GA_TRACKING_ID}', {page_path: window.location.pathname,});`,
+        }}
+      />
+    </Head>
   )
 }

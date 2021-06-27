@@ -10,7 +10,7 @@ function PostCard(props: Post) {
   const { title, date, cover, excerpt, tag = [] } = meta;
 
   return (
-    <section className="bg-white">
+    <section className="border border-gray-100">
       <img src={cover} alt={title} className="object-cover w-full bg-gray-200 h-48" />
       <section className="px-6 py-4">
         <i className="block text-sm mb-2 text-gray-500">{tag.join(',')}</i>

@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 import Seo from 'chungguo/components/Seo';
@@ -44,9 +43,7 @@ export default function Post({ post }) {
   return (
     <>
       <Header />
-      <Head>
-        <Seo title={title} cover={cover} url={`https://chungguo.me/${slug}`} description={excerpt}/>
-      </Head>
+      <Seo title={title} cover={cover} url={`https://chungguo.me/${slug}`} description={excerpt}/>
       <PostPage slug={slug} meta={meta} content={content} />
     </>
   )

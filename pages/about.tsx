@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import Seo from 'chungguo/components/Seo';
 import Header from 'chungguo/components/Header';
 import Link from 'chungguo/components/Link';
 import Social from 'chungguo/components/Social';
@@ -10,26 +11,26 @@ import Happy from 'chungguo/public/assets/common/blushy-happy.svg';
 const experience = [{
   time: '2019.10 至今',
   location: 'Chengdu 成都',
-  company: 'Meituan(美团)',
+  company: 'Meituan 美团',
   logo: <Meituan />
 }, {
   time: '2016.07 - 2019.10',
   location: 'Shenzhen 深圳',
-  company: 'Tencent(腾讯)',
+  company: 'Tencent 腾讯',
   logo: <Tencent />
 }, {
   time: '2015.07 - 2015.09',
   location: 'Hangzhou 杭州',
-  company: 'Alibaba(淘宝)',
+  company: 'Alibaba 淘宝',
   logo: <Alibaba />
 }];
 
-export default function About() {
+function AboutPage() {
   return (
     <article className="min-h-screen">
       <Header />
       <main className="sm:max-w-2xl mx-auto px-5 pt-10 sm:px-6">
-        <section className="w-20 m-auto">
+        <section className="w-20 mb-4 m-auto">
           <Happy />
         </section>
         <section className="mb-4 flex flex-col items-center">
@@ -61,9 +62,19 @@ export default function About() {
         </section>
         <section className="text-center">
           <h1 className="font-semibold text-lg mb-4">Acknowledgements<br />致谢</h1>
-          <p>感谢<Link href="https://www.opendoodles.com/"><a>opendoodles</a></Link>提供本站所有插画</p>
+          <p>本站所有插画均来自<Link href="https://www.opendoodles.com/"><a>opendoodles</a></Link></p>
+          <p>本站所有配图均来自<Link href="https://unsplash.com/"><a>unsplash</a></Link></p>
         </section>
       </main>
     </article>
+  )
+}
+
+export default function About() {
+  return (
+    <>
+      <Seo />
+      <AboutPage />
+    </>
   )
 }

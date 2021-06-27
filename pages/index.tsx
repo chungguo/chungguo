@@ -1,13 +1,14 @@
 import Link from 'next/link';
+import Seo from 'chungguo/components/Seo';
 import Hero from 'chungguo/public/assets/common/hero.svg';
 import RightArrow from 'chungguo/public/assets/common/right-arrow.svg';
 import Chungguo from 'chungguo/public/chungguo.svg';
 import { SELF_BREIF } from 'chungguo/shared/constants';
 
-export default function Index() {
+function IndexPage() {
   return (
     <article className="flex flex-col min-h-screen overflow-hidden">
-      <header className="w-full bg-white">
+      <header className="w-full bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-5 sm:px-6">
           <div className="flex items-center justify-between h-16 md:h-20">
             <div className="w-10 h-10 relative">
@@ -19,7 +20,7 @@ export default function Index() {
               <ul className="flex flex-grow justify-end flex-wrap items-center">
                 <li>
                   <Link href="/blog" passHref>
-                    <a className="flex items-center px-4 py-1 rounded-md text-white bg-blue-500 hover:bg-blue-600 ml-3">
+                    <a className="flex items-center px-4 py-2 rounded-md text-white bg-blue-500 hover:bg-blue-600 ml-3">
                       <span>Blog</span>
                       <span className="inline-block w-3 h-3 fill-current text-white flex-shrink-0 ml-2 -mr-1"><RightArrow /></span>
                     </a>
@@ -46,5 +47,13 @@ export default function Index() {
         </section>
       </main>
     </article>
+  )
+}
+export default function Index() {
+  return (
+    <>
+      <Seo />
+      <IndexPage />
+    </>
   )
 }

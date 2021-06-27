@@ -1,7 +1,8 @@
 import Link from 'next/link';
+import Seo from 'chungguo/components/Seo';
 import Clumsy from 'chungguo/public/assets/common/clumsy.svg';
 
-export default function NotFound() {
+function NotFound404() {
   return (
     <article className="not-found flex min-h-screen justify-center items-center flex-col p-10">
       <section className="max-w-1/2 w-80">
@@ -11,8 +12,17 @@ export default function NotFound() {
         Oops..., although the page is not found, but the joy of life is worth exploring forever.
       </h1>
       <Link href="/" passHref>
-        <a className="px-4 py-1 rounded-md text-white bg-blue-500 hover:bg-blue-600 mt-10">Go Home</a>
+        <a className="px-4 py-2 rounded-md text-white bg-blue-500 hover:bg-blue-600 mt-10">Go Home</a>
       </Link>
     </article>
+  )
+}
+
+export default function NotFound() {
+  return (
+    <>
+      <Seo />
+      <NotFound404 />
+    </>
   )
 }

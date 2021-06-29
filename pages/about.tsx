@@ -30,10 +30,10 @@ function AboutPage() {
     <article className="min-h-screen">
       <Header />
       <main className="sm:max-w-2xl mx-auto px-5 pt-10 sm:px-6">
-        <section className="w-20 mb-4 m-auto">
+        <section className="w-20 mb-4 m-auto dark:text-gray-300">
           <Happy />
         </section>
-        <section className="mb-4 flex flex-col items-center">
+        <section className="mb-4 flex flex-col items-center dark:text-gray-300">
           <h1 className="font-semibold text-lg text-center">Experience<br />工作履历</h1>
           <ul className="ml-5">
             {
@@ -47,7 +47,7 @@ function AboutPage() {
                     {item.logo}
                   </span>
                   <section>
-                    <p className="text-gray-500 text-sm">{item.time}</p>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm">{item.time}</p>
                     <p className="text-sm">{item.location}</p>
                     <p>{item.company}</p>
                   </section>
@@ -56,11 +56,11 @@ function AboutPage() {
             }
           </ul>
         </section>
-        <section className="mb-10 flex flex-col items-center">
+        <section className="mb-10 flex flex-col items-center dark:text-gray-300">
           <h1 className="font-semibold text-lg mb-4">Contact<br />社交账号</h1>
           <Social />
         </section>
-        <section className="text-center">
+        <section className="text-center dark:text-gray-300">
           <h1 className="font-semibold text-lg mb-4">Acknowledgements<br />致谢</h1>
           <p>本站所有插画均来自<Link href="https://www.opendoodles.com/"><a>opendoodles</a></Link></p>
           <p>本站所有配图均来自<Link href="https://unsplash.com/"><a>unsplash</a></Link></p>

@@ -8,6 +8,10 @@
   }
 }
 
+.dark .markdown {
+  color: rgb(209, 213, 219);
+}
+
 img {
   display: inline-block;
 }

@@ -1,4 +1,4 @@
-const { teal } = require('tailwindcss/colors')
+const { teal } = require('tailwindcss/colors');
 
 module.exports = {
   corePlugins: {
@@ -12,7 +12,7 @@ module.exports = {
   darkMode: 'class',
   theme: {
     fontFamily: {
-      'custom': [ 
+      'custom': [
         'Inter',
         '-apple-system',
         'BlinkMacSystemFont',
@@ -35,6 +35,6 @@ module.exports = {
     },
   },
   plugins: [
-    require('@tailwindcss/line-clamp')
+    require('@tailwindcss/line-clamp'),
   ],
 }

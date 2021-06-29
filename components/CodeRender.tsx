@@ -7,7 +7,7 @@ export default function CodeRender(props) {
 
   if (inline) {
     return <code {...other} inline="true" className={classNames(className, {
-      'bg-gray-100 px-2 py-1 rounded-md': inline,
+      'bg-gray-100 dark:bg-gray-500 dark:text-gray-300 px-2 py-1 rounded-md': inline,
     })} />
   }
 

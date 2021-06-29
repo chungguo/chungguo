@@ -21,12 +21,12 @@ export default function PostPage(props: Post) {
   const { title, date, tag = [] } = meta;
 
   return (
-    <article className="max-w-4xl mx-auto px-6 sm:px-6 py-6 line-number">
+    <article className="max-w-4xl mx-auto px-6 sm:px-6 py-6 line-number dark:text-gray-300">
       <h1 className="text-3xl mb-4 font-semibold">{title}</h1>
       <i className="block text-sm text-gray-500">{tag.join(',')}</i>
       <time className="block text-sm text-gray-500" dateTime={date}>{date}</time>
       <ReactMarkdown
-        className={markdownStyles['markdown']}
+        className={`${markdownStyles['markdown']} markdown`}
         remarkPlugins={[
           gfm,
           footnotes,

@@ -6,7 +6,7 @@ class MyDocument extends Document {
     return (
       <Html lang="zh-cmn-Hans">
         <Head />
-        <body>
+        <body className="dark:bg-black">
           <Main />
           <Footer />
           <NextScript />

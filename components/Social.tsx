@@ -11,7 +11,7 @@ interface Props {
 const Blog = () => {
   return (
     <Link href="/blog" passHref>
-      <a className='transform hover:scale-125 block w-6 h-6 hover:text-blue-600'>
+      <a className='transform hover:scale-125 block w-6 h-6 hover:text-blue-600 dark:hover:text-gray-50'>
         <BlogSVG />
       </a>
     </Link>
@@ -21,7 +21,7 @@ const Blog = () => {
 const Instagram = () => {
   return (
     <Link href="https://www.instagram.com/chungguo.gc/" passHref>
-      <a target="_blank" rel="noreferrer" className='transform hover:scale-125 block w-6 h-6 hover:text-blue-600'>
+      <a target="_blank" rel="noreferrer" className='transform hover:scale-125 block w-6 h-6 hover:text-blue-600 dark:hover:text-gray-50'>
         <InstagramSVG />
       </a>
     </Link>
@@ -31,7 +31,7 @@ const Instagram = () => {
 const Twitter = () => {
   return (
     <Link href="https://twitter.com/chungguo_me/" passHref>
-      <a target="_blank" rel="noreferrer" className='transform hover:scale-125 block w-6 h-6 hover:text-blue-600'>
+      <a target="_blank" rel="noreferrer" className='transform hover:scale-125 block w-6 h-6 hover:text-blue-600 dark:hover:text-gray-50'>
         <TwitterSVG />
       </a>
     </Link>
@@ -41,7 +41,7 @@ const Twitter = () => {
 const Github = () => {
   return (
     <Link href="https://github.com/chungguo/chungguo.github.io" passHref>
-      <a target="_blank" rel="noreferrer" className='transform hover:scale-125 block w-6 h-6 hover:text-blue-600'>
+      <a target="_blank" rel="noreferrer" className='transform hover:scale-125 block w-6 h-6 hover:text-blue-600 dark:hover:text-gray-50'>
         <GithubSVG />
       </a>
     </Link>

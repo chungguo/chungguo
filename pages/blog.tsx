@@ -8,6 +8,7 @@ import { Post } from 'chungguo/types/post';
 import { SELF_BREIF } from 'chungguo/shared/constants';
 
 const generateRssItem = (post: Post): string => `
+  <item>
     <title>${post.meta.title}</title>
     <link>https://chungguo.me/${post.slug}</link>
     <guid>https://chungguo.me/${post.slug}</guid>

@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import Chungguo from 'chungguo/public/chungguo.svg';
-import DarkMode from 'chungguo/components/DarkMode';
 
 export default function Header() {
   return (
@@ -23,9 +22,6 @@ export default function Header() {
                 <Link href="/rss.xml" passHref>
                   <a>RSS</a>
                 </Link>
-              </li>
-              <li className="flex items-center px-5">
-                <DarkMode />
               </li>
             </ul>
           </nav>

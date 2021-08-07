@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import Seo from 'chungguo/components/Seo';
-import DarkMode from 'chungguo/components/DarkMode';
 import Hero from 'chungguo/public/assets/common/hero.svg';
 import RightArrow from 'chungguo/public/assets/common/right-arrow.svg';
 import Chungguo from 'chungguo/public/chungguo.svg';
@@ -19,9 +18,6 @@ function IndexPage() {
             </div>
             <nav className="flex flex-grow">
               <ul className="flex flex-grow justify-end flex-wrap items-center dark:text-gray-300">
-                <li className="mr-8">
-                  <DarkMode />
-                </li>
                 <li>
                   <Link href="/blog" passHref>
                     <a className="flex items-center px-4 py-2 rounded-md text-white bg-blue-500 hover:bg-blue-600 ml-3">

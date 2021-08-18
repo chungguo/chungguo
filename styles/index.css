@@ -84,6 +84,10 @@ img {
   position: absolute;
 }
 
+.firebaseui-dialog.firebaseui-id-dialog {
+  height: fit-content !important;
+}
+
 @-webkit-keyframes nprogress-spinner {
   0% {
     -webkit-transform: rotate(0deg);

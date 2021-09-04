@@ -9,7 +9,12 @@ import Meituan from 'chungguo/public/assets/common/meituan-logo.svg';
 import Happy from 'chungguo/public/assets/common/blushy-happy.svg';
 
 const experience = [{
-  time: '2019.10 至今',
+  time: '2021.09 至今',
+  location: 'Chengdu 成都',
+  company: 'Tencent 腾讯',
+  logo: <Tencent />
+}, {
+  time: '2019.10 - 2021.09',
   location: 'Chengdu 成都',
   company: 'Meituan 美团',
   logo: <Meituan />

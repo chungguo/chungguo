@@ -2,14 +2,15 @@ const path = require("path");
 
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src-elem 'self' 'unsafe-inline' *.googletagmanager.com *.google-analytics.com;
-  script-src 'self' 'unsafe-inline' 'unsafe-eval' *.googletagmanager.com *.google-analytics.com *.firebase.com *.firebaseio.com;
+  script-src-elem 'self' 'unsafe-inline' *.googletagmanager.com *.google-analytics.com *.google.com *.gstatic.com;
+  script-src 'self' 'unsafe-inline' 'unsafe-eval' *.googletagmanager.com *.google-analytics.com *.firebase.com *.firebaseio.com *.google.com *.gstatic.com;
   img-src 'self' data: *.google-analytics.com *.googleapis.com *.gstatic.com;
   style-src 'self' 'unsafe-inline';
   style-src-elem 'self' 'unsafe-inline' *.googleapis.com;
-  font-src 'self' data:;
+  font-src 'self' data: fonts.gstatic.com;
   object-src 'self';
   connect-src 'self' *.google-analytics.com *.googleapis.com;
+  frame-src 'self' *.google.com *.firebaseapp.com;
 `;
 
 const securityHeaders = [

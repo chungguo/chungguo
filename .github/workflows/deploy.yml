@@ -21,7 +21,10 @@ jobs:
     - name: 安装依赖
       run: yarn install
     - name: 设置环境变量
-      run: 'echo NEXT_PUBLIC_FIREBASE_CONFIG="$FIREBASE_CONFIG" \n NEXT_PUBLIC_SS_USER_WHITELIST="$SS_USER_WHITELIST" \n NEXT_PUBLIC_SS_CONFIG_LIST="$SS_CONFIG_LIST" > .env.local'
+      run: |
+        echo NEXT_PUBLIC_FIREBASE_CONFIG="$FIREBASE_CONFIG" > .env.local
+        echo NEXT_PUBLIC_SS_USER_WHITELIST="$SS_USER_WHITELIST" >> .env.local
+        echo NEXT_PUBLIC_SS_CONFIG_LIST="$SS_CONFIG_LIST" >> .env.local
       shell: bash
       env:
         FIREBASE_CONFIG : ${{secrets.FIREBASE_CONFIG}}
@@ -46,7 +49,10 @@ jobs:
     - name: 安装依赖
       run: yarn install
     - name: 设置环境变量
-      run: 'echo NEXT_PUBLIC_FIREBASE_CONFIG="$FIREBASE_CONFIG" \n NEXT_PUBLIC_SS_USER_WHITELIST="$SS_USER_WHITELIST" \n NEXT_PUBLIC_SS_CONFIG_LIST="$SS_CONFIG_LIST" > .env.local'
+      run: |
+        echo NEXT_PUBLIC_FIREBASE_CONFIG="$FIREBASE_CONFIG" > .env.local
+        echo NEXT_PUBLIC_SS_USER_WHITELIST="$SS_USER_WHITELIST" >> .env.local
+        echo NEXT_PUBLIC_SS_CONFIG_LIST="$SS_CONFIG_LIST" >> .env.local
       shell: bash
       env:
         FIREBASE_CONFIG : ${{secrets.FIREBASE_CONFIG}}

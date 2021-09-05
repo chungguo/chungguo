@@ -8,6 +8,7 @@ const config = JSON.parse(process.env.NEXT_PUBLIC_FIREBASE_CONFIG);
 const whiteList = JSON.parse(process.env.NEXT_PUBLIC_SS_USER_WHITELIST) || [];
 const proxyList = JSON.parse(process.env.NEXT_PUBLIC_SS_CONFIG_LIST) || [];
 
+console.log(process.env)
 // Configure FirebaseUI.
 const uiConfig = {
   // Popup signin flow rather than redirect flow.
@@ -110,14 +111,14 @@ export default function Auth() {
   /**
  * 无权查看
  */
-  const NoAuth = () => {
+  const NoAuth = React.useCallback(() => {
     return (
       <section className="w-72 h-72 mx-auto mt-4">
         <NoPermission />
         <p className="text-center mt-4">对不起，您无权查看, 请 <a className="text-blue-600" onClick={signOut}>退出登陆</a></p>
       </section>
     )
-  };
+  }, [signOut]);
 
   const InfoTable = React.useCallback(() => {
     return (
@@ -145,7 +146,7 @@ export default function Auth() {
     }
 
     return <InfoTable />
-  }, [userInfo, uid, whiteList]);
+  }, [userInfo, uid, InfoTable, NoAuth]);
 
   // Listen to the Firebase Auth state and set the local state.
   React.useEffect(() => {

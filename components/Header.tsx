@@ -13,6 +13,11 @@ export default function Header() {
           </div>
           <nav className="flex flex-gro">
             <ul className="flex flex-grow justify-end flex-wrap items-center text-gray-600 dark:text-gray-300">
+            <li className="flex items-center px-5">
+                <Link href="/ss" passHref>
+                  <a>SS</a>
+                </Link>
+              </li>
               <li className="flex items-center px-5">
                 <Link href="/about" passHref>
                   <a>ABOUT</a>

@@ -4,11 +4,27 @@ import Header from 'chungguo/components/Header';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import NoPermission from 'chungguo/public/assets/common/no-auth.svg';
 
-const config = JSON.parse(process.env.NEXT_PUBLIC_FIREBASE_CONFIG);
-const whiteList = JSON.parse(process.env.NEXT_PUBLIC_SS_USER_WHITELIST) || [];
-const proxyList = JSON.parse(process.env.NEXT_PUBLIC_SS_CONFIG_LIST) || [];
+interface Proxy {
+  location: string,
+  ip: string,
+  port: string,
+  encryption: string,
+  passwd: string,
+}
 
-console.log(process.env)
+const config = JSON.parse(process.env.NEXT_PUBLIC_FIREBASE_CONFIG);
+
+const queryFirestore = () => {
+  const db = firebase.firestore();
+  return new Promise((resolve, reject) => {
+    db.collection("ss").doc('servers').get().then((ss) => {
+      resolve(ss?.data()?.data);
+    }).catch(err => {
+      resolve([]);
+    });
+  });
+};
+
 // Configure FirebaseUI.
 const uiConfig = {
   // Popup signin flow rather than redirect flow.
@@ -43,7 +59,11 @@ const initApp = () => {
 /**
  * 配置信息表格 
  */
-const ProxyListTable = () => {
+const ProxyListTable = (props: {
+  proxyList: Proxy[],
+}) => {
+  const { proxyList } = props;
+
   return (
     <table className="table-auto border-collapse border my-10 mx-auto">
       <thead>
@@ -94,14 +114,10 @@ const NoSignIn = () => {
 export default function Auth() {
   // Local signed-in state.
   const [userInfo, setUserInfo] = React.useState(null);
+  const [proxyList, setProxyList] = React.useState<Proxy[]>([]);
 
-  const [uid, displayName] = React.useMemo(() => {
-    if (!userInfo) {
-      return [null, null]
-    }
-
-    const { email, phoneNumber, displayName } = userInfo;
-    return [email || phoneNumber, displayName];
+  const displayName = React.useMemo(() => {
+    return userInfo?.displayName || null;
   }, [userInfo]);
 
   const signOut = React.useCallback(() => {
@@ -109,8 +125,8 @@ export default function Auth() {
   }, []);
 
   /**
- * 无权查看
- */
+   * 无权查看
+   */
   const NoAuth = React.useCallback(() => {
     return (
       <section className="w-72 h-72 mx-auto mt-4">
@@ -129,24 +145,22 @@ export default function Auth() {
           <p className="text-red-600">2. 默认您自愿遵守所在地区的相关法律法规，并对通过使用本页面提供的信息接入网络时产生的行为负责</p>
           <a className="text-sm text-center mt-4 text-blue-600" onClick={signOut}>退出登陆</a>
         </section>
-        <ProxyListTable />
+        <ProxyListTable proxyList={proxyList} />
       </>
     );
-  }, [displayName, signOut]);
+  }, [displayName, proxyList, signOut]);
 
   const PageComponent = React.useCallback(() => {
     if (!userInfo) {
-      return (
-        <NoSignIn />
-      );
+      return <NoSignIn />;
     }
 
-    if (!uid || !whiteList.includes(uid)) {
-      return <NoAuth />
+    if (!proxyList.length) {
+      return <NoAuth />;
     }
 
-    return <InfoTable />
-  }, [userInfo, uid, InfoTable, NoAuth]);
+    return <InfoTable />;
+  }, [userInfo, proxyList, InfoTable, NoAuth]);
 
   // Listen to the Firebase Auth state and set the local state.
   React.useEffect(() => {
@@ -156,6 +170,10 @@ export default function Auth() {
     // Make sure we un-register Firebase observers when the component unmounts.
     return () => unregisterAuthObserver();
   }, []);
+
+  React.useEffect(() => {
+    queryFirestore().then((data: Proxy[]) => setProxyList(data))
+  }, [userInfo]);
 
   return (
     <article>

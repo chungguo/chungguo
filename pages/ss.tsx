@@ -116,9 +116,7 @@ export default function Auth() {
   const [userInfo, setUserInfo] = React.useState(null);
   const [proxyList, setProxyList] = React.useState<Proxy[]>([]);
 
-  const displayName = React.useMemo(() => {
-    return userInfo?.displayName || null;
-  }, [userInfo]);
+  const displayName = React.useMemo(() => userInfo?.displayName || null, [userInfo]);
 
   const signOut = React.useCallback(() => {
     firebase.auth().signOut()
@@ -148,7 +146,11 @@ export default function Auth() {
         <ProxyListTable proxyList={proxyList} />
       </>
     );
-  }, [displayName, proxyList, signOut]);
+  }, [
+    displayName,
+    proxyList,
+    signOut
+  ]);
 
   const PageComponent = React.useCallback(() => {
     if (!userInfo) {
@@ -160,7 +162,12 @@ export default function Auth() {
     }
 
     return <InfoTable />;
-  }, [userInfo, proxyList, InfoTable, NoAuth]);
+  }, [
+    userInfo,
+    proxyList,
+    InfoTable,
+    NoAuth
+  ]);
 
   // Listen to the Firebase Auth state and set the local state.
   React.useEffect(() => {
@@ -172,6 +179,10 @@ export default function Auth() {
   }, []);
 
   React.useEffect(() => {
+    if (!userInfo) {
+      return;
+    }
+
     queryFirestore().then((data: Proxy[]) => setProxyList(data))
   }, [userInfo]);
 

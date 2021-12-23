@@ -24,7 +24,7 @@ export default function DarkMode() {
       document.documentElement.classList.remove('dark');
       setDarkMode(false);
     }
-  });
+  }, []);
 
   if (darkMode === null) {
     return null;

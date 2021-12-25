@@ -1,19 +1,19 @@
 
-import * as React from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import Sun from 'chungguo/public/assets/common/sun.svg';
 import Moon from 'chungguo/public/assets/common/moon.svg';
 
 export default function DarkMode() {
-  const [darkMode, setDarkMode] = React.useState<boolean | null>(null);
+  const [darkMode, setDarkMode] = useState<boolean | null>(null);
 
-  const changeMode = React.useCallback(() => {
+  const changeMode = useCallback(() => {
     setDarkMode(darkMode => {
       localStorage.__chungguo_theme__ = darkMode ? 'light' : 'dark';
       return !darkMode;
     });
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (
       localStorage.__chungguo_theme__ === 'dark' ||
       (!('__chungguo_theme__' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
@@ -24,7 +24,7 @@ export default function DarkMode() {
       document.documentElement.classList.remove('dark');
       setDarkMode(false);
     }
-  }, []);
+  });
 
   if (darkMode === null) {
     return null;

@@ -1,7 +1,5 @@
 import fs from 'fs';
 import { getAllPosts } from 'chungguo/lib/post';
-import Seo from 'chungguo/components/Seo';
-import Header from 'chungguo/components/Header';
 import Recommend from 'chungguo/components/Recommend';
 import PostCards from 'chungguo/components/PostCards';
 import { Post } from 'chungguo/types/post';
@@ -58,13 +56,11 @@ export default function BlogIndex(props) {
   });
 
   return (
-    <article>
-      <Seo />
-      <Header />
+    <>
       <Recommend posts={recommendPosts} />
       <main className="max-w-7xl mx-auto px-5 sm:px-6">
         <PostCards posts={otherPosts} />
       </main>
-    </article>
+    </>
   )
 }

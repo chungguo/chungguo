@@ -1,6 +1,5 @@
 import * as React from 'react';
 import firebase from 'firebase';
-import Header from 'chungguo/components/Header';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import NoPermission from 'chungguo/public/assets/common/no-auth.svg';
 
@@ -186,12 +185,7 @@ export default function Auth() {
     queryFirestore().then((data: Proxy[]) => setProxyList(data))
   }, [userInfo]);
 
-  return (
-    <article>
-      <Header />
-      <PageComponent />
-    </article>
-  );
+  return <PageComponent />;
 };
 
 initApp();

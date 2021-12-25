@@ -1,18 +1,14 @@
 const { teal } = require('tailwindcss/colors');
 
 module.exports = {
-  corePlugins: {
-    appearance: false,
-    resize: false,
-  },
-  purge: [
-    './components/**/*.tsx',
-    './pages/**/*.tsx',
-  ],
   darkMode: 'class',
+  content: [
+    './pages/**/*.tsx',
+    './components/**/*.tsx',
+  ],
   theme: {
     fontFamily: {
-      'custom': [
+      custom: [
         'Inter',
         '-apple-system',
         'BlinkMacSystemFont',
@@ -31,7 +27,7 @@ module.exports = {
       colors: {
         black: '#121212',
         teal,
-      }
+      },
     },
   },
   plugins: [

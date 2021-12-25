@@ -9,9 +9,9 @@ export default function CustomLink(props: Props) {
   const { href, children } = props;
   return (
     <Link passHref href={href}>
-      <a className="text-black dark:text-gray-300 font-semibold bg-underline-blue" target="_blank" rel="noreferrer">
+      <span className="text-black dark:text-gray-300 font-semibold bg-underline-blue">
         {children}
-      </a>
+      </span>
     </Link>
   );
 }

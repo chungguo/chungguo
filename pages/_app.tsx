@@ -1,16 +1,44 @@
+import { useEffect } from "react";
 import Router from 'next/router';
+import Head from 'chungguo/components/Head';
+import Header from 'chungguo/components/Header';
+import Footer from 'chungguo/components/Footer';
 import NProgress from 'nprogress';
 import 'chungguo/styles/index.css';
 
-NProgress.configure({ 
+NProgress.configure({
   showSpinner: true,
   spinnerSelector: '#__next'
 });
 
-Router.events.on('routeChangeStart', () => NProgress.start())
-Router.events.on('routeChangeComplete', () => NProgress.done())
-Router.events.on('routeChangeError', () => NProgress.done())
+const processStart = () => NProgress.start();
+const processDone = () => NProgress.done();
 
-export default function MyApp({ Component, pageProps }) {
-  return (<Component {...pageProps} />)
+export default function MyApp({ Component, pageProps, router }) {
+  Router.events.on('routeChangeStart', processStart);
+  Router.events.on('routeChangeComplete', processDone);
+  Router.events.on('routeChangeError', processDone);
+
+  useEffect(() => {
+    Router.events.on('routeChangeStart', processStart);
+    Router.events.on('routeChangeComplete', processDone);
+    Router.events.on('routeChangeError', processDone);
+
+    return () => {
+      Router.events.off('routeChangeStart', processStart);
+      Router.events.off('routeChangeComplete', processDone);
+      Router.events.off('routeChangeError', processDone);
+    }
+  }, []);
+
+  return (
+    <>
+      <Head asPath={router.asPath} />
+      <article className="flex flex-col">
+        <Header />
+        <Component {...pageProps} router={router} />
+        <Footer />
+      </article>
+    </>
+  );
 }

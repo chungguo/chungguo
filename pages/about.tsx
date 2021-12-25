@@ -1,6 +1,4 @@
 import classNames from 'classnames';
-import Seo from 'chungguo/components/Seo';
-import Header from 'chungguo/components/Header';
 import Link from 'chungguo/components/Link';
 import Social from 'chungguo/components/Social';
 import Tencent from 'chungguo/public/assets/common/tencent-logo.svg';
@@ -26,14 +24,13 @@ const experience = [{
 }, {
   time: '2015.07 - 2015.09',
   location: 'Hangzhou 杭州',
-  company: 'Alibaba 淘宝',
+  company: 'Alibaba 淘宝（实习）',
   logo: <Alibaba />
 }];
 
 function AboutPage() {
   return (
     <article className="min-h-screen">
-      <Header />
       <main className="sm:max-w-2xl mx-auto px-5 pt-10 sm:px-6">
         <section className="w-20 mb-4 m-auto dark:text-gray-300">
           <Happy />
@@ -76,10 +73,5 @@ function AboutPage() {
 }
 
 export default function About() {
-  return (
-    <>
-      <Seo />
-      <AboutPage />
-    </>
-  )
+  return <AboutPage />;
 }

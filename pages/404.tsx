@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Seo from 'chungguo/components/Seo';
 import Clumsy from 'chungguo/public/assets/common/clumsy.svg';
 
 function NotFound404() {
@@ -19,10 +18,5 @@ function NotFound404() {
 }
 
 export default function NotFound() {
-  return (
-    <>
-      <Seo />
-      <NotFound404 />
-    </>
-  )
-}
+  return <NotFound404 />;
+};

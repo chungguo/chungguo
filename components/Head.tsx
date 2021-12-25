@@ -1,20 +1,15 @@
+import { NextPage } from 'next';
 import Head from 'next/head';
 import { GA_TRACKING_ID } from 'chungguo/shared/constants';
 
 interface Props {
-  url?: string,
-  title?: string,
-  cover?: string,
-  description?: string,
+  asPath?: string,
 }
 
-export default function Seo(props: Props) {
-  const {
-    url = 'https://chungguo.me',
-    title = 'chungguo',
-    cover = 'https://chungguo.me/chungguo.jpg',
-    description = 'I\'m chungguo, coder, amateur photographer.',
-  } = props;
+const MyHead: NextPage<Props> = ({ asPath = 'https://chungguo.me' }) => {
+  const title = 'chungguo';
+  const cover = 'https://chungguo.me/chungguo.jpg';
+  const description = 'I\'m chungguo, coder, amateur photographer.';
 
   return (
     <Head>
@@ -24,16 +19,16 @@ export default function Seo(props: Props) {
       <meta name="keywords" content="chungguo" />
       <meta name="description" content={description} />
       <meta name="copyright" content="chungguo" />
-      <meta name="url" content={url} />
+      <meta name="url" content={asPath} />
       <meta name="og:title" content={title} />
       <meta name="og:type" content="article" />
-      <meta name="og:url" content={url} />
+      <meta name="og:url" content={asPath} />
       <meta name="og:image" content={cover} />
       <meta name="og:site_name" content="chungguo" />
       <meta property="og:description" content={description} />
       <meta name="og:region" content="CN" />
       <meta name="og:country-name" content="CHN" />
-      <link rel="canonical" href={url} data-baseprotocol="https:" data-basehost="chungguo.me" />
+      <link rel="canonical" href={asPath} data-baseprotocol="https:" data-basehost="chungguo.me" />
       <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png" />
       <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png" />
       <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png" />
@@ -47,4 +42,6 @@ export default function Seo(props: Props) {
       />
     </Head>
   )
-}
+};
+
+export default MyHead;

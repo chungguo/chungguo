@@ -4,7 +4,7 @@ import Clumsy from 'chungguo/public/assets/common/clumsy.svg';
 function NotFound404() {
   return (
     <article className="not-found flex min-h-screen justify-center items-center flex-col p-10">
-      <section className="max-w-1/2 w-80">
+      <section className="max-w-1/2 w-80 dark:text-white" >
         <Clumsy />
       </section>
       <h1 className="text-center text-gray-500 font-custom mt-6">

@@ -1,8 +1,7 @@
 import fs from 'fs';
-import { getAllPosts } from 'chungguo/lib/post';
-import Recommend from 'chungguo/components/Recommend';
-import PostCards from 'chungguo/components/PostCards';
 import { Post } from 'chungguo/types/post';
+import { getAllPosts, writeIssueAsMarkdownFile } from 'chungguo/lib/post';
+import PostCards from 'chungguo/components/PostCards';
 import { SELF_BREIF } from 'chungguo/shared/constants';
 
 const generateRssItem = (post: Post): string => `
@@ -34,33 +33,25 @@ const generateRss = (posts: Post[]): string => `
 `;
 
 export async function getStaticProps() {
-  const allPosts = getAllPosts()
-  const rss = generateRss(allPosts as Post[]);
+  await writeIssueAsMarkdownFile();
+  const posts = getAllPosts()
+  const rss = generateRss(posts as Post[]);
 
   fs.writeFileSync('./public/rss.xml', rss);
 
   return {
     props: {
-      allPosts
+      posts
     },
   }
 }
 
 export default function BlogIndex(props) {
-  const { allPosts } = props;
-  const recommendPosts = [];
-  const otherPosts = [];
-
-  allPosts.forEach((post: Post) => {
-    !!post.meta?.recommend ? recommendPosts.push(post) : otherPosts.push(post);
-  });
+  const { posts } = props;
 
   return (
-    <>
-      <Recommend posts={recommendPosts} />
-      <main className="max-w-7xl mx-auto px-5 sm:px-6">
-        <PostCards posts={otherPosts} />
-      </main>
-    </>
+    <main className="max-w-7xl mx-auto px-5 sm:px-6">
+      <PostCards posts={posts} />
+    </main>
   )
 }

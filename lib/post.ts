@@ -1,13 +1,11 @@
-import matter from 'gray-matter';
 import { join } from 'path';
 import { readFileSync, readdirSync } from 'fs';
-
-const postsDirectory = join(process.cwd(), './posts');
-
-/** 读取_post目录下所有md文件名称 */
-export function getPostSlugs() {
-  return readdirSync(postsDirectory);
-}
+import { writeFile } from 'fs/promises';
+import dayjs from 'dayjs';
+import matter from 'gray-matter';
+import { getAllIssues } from 'chungguo/lib/github';
+import { Issue } from 'chungguo/types/post';
+import { POST_DIRECTORY } from 'chungguo/lib/constants';
 
 /**
  *  读取 md 文件，头部信息会放在 data 字段，正文存储在 content 中
@@ -18,7 +16,7 @@ export function getPostSlugs() {
  */
 export function getPostBySlug(slug: string) {
   const realSlug = slug.replace(/\.md$/, '');
-  const fullPath = join(postsDirectory, `${realSlug}.md`);
+  const fullPath = join(POST_DIRECTORY, `${realSlug}.md`);
   const fileContents = readFileSync(fullPath, 'utf8');
 
   const { data, content } = matter(fileContents);
@@ -31,12 +29,33 @@ export function getPostBySlug(slug: string) {
 }
 
 export function getAllPosts() {
-  return getPostSlugs()
-    .map(slug => getPostBySlug(slug))
-    .filter(post => post.meta.draft !== true)
-    .sort((pre, next) => {
-      const preDate = new Date(pre.meta.date).valueOf();
-      const nextDate = new Date(next.meta.date).valueOf();
-      return preDate > nextDate ? -1 : 1
-    });
+  return readdirSync(POST_DIRECTORY)
+    .filter(filename => filename.endsWith('.md'))
+    .map(slug => getPostBySlug(slug));
+}
+
+export async function writeIssueAsMarkdownFile() {
+  const issues = await getAllIssues({
+    labels: ['post'],
+  });
+
+  await writeFile(join(POST_DIRECTORY, 'issues.json'), JSON.stringify(issues), 'utf-8');
+
+  await Promise.all(issues.map(async (issue: Issue) => {
+    const { id, number, title, labels, updated_at, body, html_url } = issue;
+    const filePath = join(POST_DIRECTORY, `${number}.md`);
+    const tagName = labels.map(label => label.name).filter(name => name !== 'post');
+    const fileContent = [
+      '---',
+      `title: '${title}'`,
+      `date: '${dayjs(updated_at).format('YYYY-MM-DD HH:mm:ss')}'`,
+      `tag: [${tagName}]`,
+      `cover: '//picsum.photos/seed/${id}/300/200'`,
+      `issue: '${html_url}'`,
+      '---',
+      `${body}`,
+    ].join('\r\n');
+
+    return writeFile(filePath, fileContent);
+  }));
 }

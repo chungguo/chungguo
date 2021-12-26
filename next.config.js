@@ -4,7 +4,7 @@ const ContentSecurityPolicy = `
   default-src 'self';
   script-src-elem 'self' 'unsafe-inline' *.googletagmanager.com *.google-analytics.com *.google.com *.gstatic.com;
   script-src 'self' 'unsafe-inline' 'unsafe-eval' *.googletagmanager.com *.google-analytics.com *.firebase.com *.firebaseio.com *.google.com *.gstatic.com;
-  img-src 'self' data: *.google-analytics.com *.googleapis.com *.gstatic.com;
+  img-src *;
   style-src 'self' 'unsafe-inline';
   style-src-elem 'self' 'unsafe-inline' *.googleapis.com;
   font-src 'self' data: fonts.gstatic.com;

@@ -98,7 +98,7 @@ const ProxyListTable = (props: {
 const NoSignIn = () => {
   return (
     <article className="my-10">
-      <section className="mx-auto w-52 mb-10">
+      <section className="mx-auto w-52 mb-10 dark:text-white">
         <h1 className="text-xl">登录</h1>
         <p className="text-sm text-gray-500">您可以选择使用以下账号登录</p>
       </section>

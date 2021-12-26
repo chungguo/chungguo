@@ -8,9 +8,9 @@ import slug from 'rehype-slug';
 import rehypeKatex from 'rehype-katex';
 
 import Issue from 'chungguo/components/Issue';
-import CodeRender from 'chungguo/components/CodeRender';
-import ImageRender from 'chungguo/components/ImageRender';
-import BlockquoteRender from 'chungguo/components/BlockquoteRender';
+import CodeRender from 'chungguo/components/markdown/CodeRender';
+import ImageRender from 'chungguo/components/markdown/ImageRender';
+import BlockquoteRender from 'chungguo/components/markdown/BlockquoteRender';
 import markdownStyles from 'chungguo/styles/markdown.module.css';
 import { Post } from 'chungguo/types/post';
 

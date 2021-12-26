@@ -52,7 +52,7 @@ async function getIssues(params: Params) {
     'number',
     'title',
     'labels',
-    'updated_at',
+    'created_at',
     'body',
     'html_url',
   ]));

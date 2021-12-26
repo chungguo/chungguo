@@ -24,7 +24,7 @@ export interface Issue {
   number: number,
   title: string,
   labels: Label[],
-  updated_at: string,
+  created_at: string,
   body: string,
   html_url: string,
 }

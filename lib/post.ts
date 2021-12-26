@@ -42,13 +42,13 @@ export async function writeIssueAsMarkdownFile() {
   await writeFile(join(POST_DIRECTORY, 'issues.json'), JSON.stringify(issues), 'utf-8');
 
   await Promise.all(issues.map(async (issue: Issue) => {
-    const { id, number, title, labels, updated_at, body, html_url } = issue;
+    const { id, number, title, labels, created_at, body, html_url } = issue;
     const filePath = join(POST_DIRECTORY, `${number}.md`);
     const tagName = labels.map(label => label.name).filter(name => name !== 'post');
     const fileContent = [
       '---',
       `title: '${title}'`,
-      `date: '${dayjs(updated_at).format('YYYY-MM-DD HH:mm:ss')}'`,
+      `date: '${dayjs(created_at).format('YYYY-MM-DD HH:mm:ss')}'`,
       `tag: [${tagName}]`,
       `cover: '//picsum.photos/seed/${id}/300/200'`,
       `issue: '${html_url}'`,

@@ -52,6 +52,7 @@ const securityHeaders = [
 ]
 
 module.exports = {
+  swcMinify: false,
   poweredByHeader: false,
   webpack: (config) => {
     config.module.rules.push({

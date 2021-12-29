@@ -66,7 +66,6 @@ export async function getAllIssues(params: Params) {
     const dataPath = join(POST_DIRECTORY, 'issues.json');
     await access(dataPath, constants.R_OK | constants.W_OK);
     const str = await readFile(dataPath, 'utf-8');
-    console.log(str);
     return JSON.parse(str);
   } catch (e) {
     console.error('file not found');

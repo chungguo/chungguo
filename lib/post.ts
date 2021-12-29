@@ -17,6 +17,7 @@ import { POST_DIRECTORY } from 'chungguo/lib/constants';
 export function getPostBySlug(slug: string) {
   const realSlug = slug.replace(/\.md$/, '');
   const fullPath = join(POST_DIRECTORY, `${realSlug}.md`);
+  console.log('fullPath: ', fullPath);
   const fileContents = readFileSync(fullPath, 'utf8');
 
   const { data, content } = matter(fileContents);

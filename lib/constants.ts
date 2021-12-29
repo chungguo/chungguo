@@ -7,4 +7,4 @@ export const PAGE_SIZE = 100;
 export const HEADERS = {
   Accept: 'application/vnd.github.v3+json',
 };
-export const POST_DIRECTORY = join(process.cwd(), './posts');
+export const POST_DIRECTORY = join(process.cwd(), './posts/');

@@ -6,6 +6,7 @@ import { getAllPosts, getPostBySlug } from 'chungguo/lib/post';
 
 export async function getStaticPaths() {
   const posts = getAllPosts();
+  console.log('posts', posts);
   return {
     paths: posts.map((post) => {
       return {
@@ -19,6 +20,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
+  console.log(`params: `, JSON.stringify(params));
   const post = getPostBySlug(params.slug)
   return {
     props: {

@@ -1,5 +1,5 @@
 import { join } from 'path';
-import { readFile, access } from 'fs/promises';
+import { readFile, access, writeFile } from 'fs/promises';
 import { constants } from 'fs';
 import { pick } from 'lodash';
 import querystring from 'querystring';
@@ -10,7 +10,7 @@ import {
   ISSUE_LIST_URL,
   SEARCH_ISSUE_URL,
   POST_DIRECTORY,
-} from 'chungguo/lib/constants';
+} from 'chungguo/shared/constants';
 
 interface Params {
   labels?: string[],
@@ -68,7 +68,7 @@ export async function getAllIssues(params: Params) {
     const str = await readFile(dataPath, 'utf-8');
     return JSON.parse(str);
   } catch (e) {
-    console.error('file not found');
+    console.log('get issues from github');
   }
 
   const totalCount: number = await getIssueTotalCount({
@@ -84,5 +84,10 @@ export async function getAllIssues(params: Params) {
       });
     })
   );
-  return posts.reduce((pre, next) => pre.concat(next), []);
+
+  const issues = posts.reduce((pre, next) => pre.concat(next), []);
+
+  await writeFile(join(POST_DIRECTORY, 'issues.json'), JSON.stringify(issues), 'utf-8');
+
+  return issues;
 }

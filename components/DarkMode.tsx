@@ -13,6 +13,16 @@ export default function DarkMode() {
     });
   }, []);
 
+  const Icon = useCallback(() => {
+    if (darkMode === null) {
+      return null;
+    }
+
+    return darkMode ? <Moon /> : <Sun />;
+  }, [
+    darkMode,
+  ]);
+
   useEffect(() => {
     if (
       localStorage.__chungguo_theme__ === 'dark' ||
@@ -26,13 +36,9 @@ export default function DarkMode() {
     }
   });
 
-  if (darkMode === null) {
-    return null;
-  }
-
-  if (darkMode === true) {
-    return <span className="inline-block w-5 h-5 cursor-pointer" onClick={changeMode}><Moon /></span>
-  }
-
-  return <span className="inline-block w-5 h-5 cursor-pointer"><Sun onClick={changeMode} /></span>;
+  return (
+    <span className="inline-block w-5 h-5 cursor-pointer" onClick={changeMode}>
+      <Icon />
+    </span>
+  );
 }

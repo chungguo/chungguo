@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import Router from 'next/router';
-import Head from 'chungguo/components/Head';
-import Header from 'chungguo/components/Header';
-import Footer from 'chungguo/components/Footer';
+import Head from 'chungguo/components/fundamental/Head';
+import Header from 'chungguo/components/fundamental/Header';
+import Footer from 'chungguo/components/fundamental/Footer';
 import NProgress from 'nprogress';
 import 'chungguo/styles/index.css';
 

@@ -1,4 +1,4 @@
-import Link from 'chungguo/components/Link'
+import Link from 'chungguo/components/fundamental/Link'
 
 export default function Issue() {
   return (

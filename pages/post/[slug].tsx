@@ -1,26 +1,24 @@
 import { useRouter } from 'next/router';
 import PostPage from 'chungguo/components/PostPage';
-import ErrorPage from 'chungguo/components/ErrorPage';
+import ErrorPage from 'chungguo/components/fundamental/ErrorPage';
 
-import { getAllPosts, getPostBySlug } from 'chungguo/lib/post';
+import { getAllPosts, getPostBySlug, writeIssueAsMarkdownFile } from 'chungguo/lib/post';
 
 export async function getStaticPaths() {
-  const posts = getAllPosts();
-  console.log('posts', posts);
+  const posts = await getAllPosts();
+
   return {
-    paths: posts.map((post) => {
-      return {
-        params: {
-          slug: post.slug,
-        },
-      }
-    }),
+    paths: posts.map(post => ({
+      params: {
+        slug: post.slug,
+      },
+    })),
     fallback: false,
   }
 }
 
 export async function getStaticProps({ params }) {
-  console.log(`params: `, JSON.stringify(params));
+  await writeIssueAsMarkdownFile();
   const post = getPostBySlug(params.slug)
   return {
     props: {

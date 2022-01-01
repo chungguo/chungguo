@@ -1,4 +1,4 @@
-import Link from 'chungguo/components/Link';
+import Link from 'chungguo/components/fundamental/Link';
 import Social from 'chungguo/components/Social';
 import By from 'chungguo/public/assets/common/by.svg';
 

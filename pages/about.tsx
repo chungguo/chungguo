@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import Link from 'chungguo/components/Link';
+import Link from 'chungguo/components/fundamental/Link';
 import Social from 'chungguo/components/Social';
 import Tencent from 'chungguo/public/assets/common/tencent-logo.svg';
 import Alibaba from 'chungguo/public/assets/common/alibaba-logo.svg';

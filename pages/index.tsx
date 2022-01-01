@@ -3,8 +3,8 @@ import { SELF_BREIF } from 'chungguo/shared/constants';
 
 function IndexPage() {
   return (
-    <article className="flex flex-col h-screen">
-      <main className="flex-grow flex flex-col justify-center">
+    <article className="flex flex-col h-[calc(100vh_-_10rem)]">
+      <main className="flex-grow flex flex-col justify-center pb-8">
         <section className="max-w-6xl md:max-w-3xl lg:max-w-5xl mx-auto px-8 sm:px-6 dark:text-white">
           <div className="flex items-center justify-between flex-row">
             <h1 className="text-4xl l lg:text-5xl sm:text-3x font-extrabold font-custom leading-tighter tracking-tight mb-4 sm:whitespace-nowrap">

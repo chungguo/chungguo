@@ -8,7 +8,7 @@ const generateRssItem = (post: Post): string => `
     <title>${post.meta.title}</title>
     <link>https://chungguo.me/${post.slug}</link>
     <guid>https://chungguo.me/${post.slug}</guid>
-    <description><![CDATA[${post.meta.excerpt}]]></description>
+    <description><![CDATA[]]></description>
     <pubDate>${new Date(post.meta.date).toUTCString()}</pubDate>
   </item>
 `;

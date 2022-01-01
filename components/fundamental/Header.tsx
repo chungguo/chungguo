@@ -26,11 +26,6 @@ export default function Header() {
     return (
       <>
         <li className="flex items-center px-5">
-          <Link href="/ss" passHref>
-            <a>SS</a>
-          </Link>
-        </li>
-        <li className="flex items-center px-5">
           <Link href="/about" passHref>
             <a>ABOUT</a>
           </Link>

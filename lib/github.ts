@@ -2,7 +2,7 @@ import { join } from 'path';
 import { readFile, access, writeFile } from 'fs/promises';
 import { constants } from 'fs';
 import { pick } from 'lodash';
-import querystring from 'querystring';
+import { stringify } from 'querystring';
 import { Issue } from 'chungguo/types/post';
 import {
   HEADERS,
@@ -20,7 +20,7 @@ interface Params {
 /** 查询 issue 总数 */
 async function getIssueTotalCount(params: Params) {
   const { labels = ['post'] } = params;
-  const query = `q=repo:chungguo/chungguo+type:issue+state:closed+label:${labels.join(';')}&per_page=1`;
+  const query = `q=repo:chungguo/chungguo+type:issue+author:chungguo+state:closed+label:${labels.join(';')}&per_page=1`;
   const res = await fetch(`${SEARCH_ISSUE_URL}?${query}`, {
     method: 'GET',
     headers: HEADERS,
@@ -41,7 +41,7 @@ async function getIssues(params: Params) {
     per_page: PAGE_SIZE,
   };
 
-  const res = await fetch(`${ISSUE_LIST_URL}?${querystring.stringify(query)}`, {
+  const res = await fetch(`${ISSUE_LIST_URL}?${stringify(query)}`, {
     headers: HEADERS,
   });
 

@@ -2,10 +2,8 @@ export interface Meta {
   title: string,
   date: string,
   cover: string,
-  excerpt: string,
+  issue: string,
   tag: string[],
-  recommend?: boolean,
-  draft?: boolean
 }
 
 export interface Post {

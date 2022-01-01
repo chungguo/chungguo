@@ -18,7 +18,7 @@ import 'katex/dist/katex.min.css'
 
 export default function PostPage(props: Post) {
   const { content, meta } = props;
-  const { title, date, tag = [] } = meta;
+  const { title, date, tag = [], issue = '' } = meta;
 
   return (
     <article className="max-w-4xl mx-auto px-6 sm:px-6 py-6 line-number dark:text-gray-300">
@@ -52,7 +52,7 @@ export default function PostPage(props: Post) {
       >
         {content}
       </ReactMarkdown>
-      <Issue />
+      <Issue issue={issue}/>
     </article>
   )
 }

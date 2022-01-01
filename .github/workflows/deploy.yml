@@ -33,7 +33,6 @@ jobs:
       - name: 重启
         run: pm2 restart chungguo || pm2 start npm --name chungguo -- run start
   oracle_instance152:
-    needs: [oracle_instance132]
     defaults:
       run:
         shell: bash

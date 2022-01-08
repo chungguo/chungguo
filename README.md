@@ -10,7 +10,7 @@ My nickname is chungguo
 🐱 &nbsp; I :heart: my :cat Prince( 太子 )
 
 <!--START_SECTION:waka-->
-![Profile Views](http://img.shields.io/badge/Profile%20Views-339-blue)
+![Profile Views](http://img.shields.io/badge/Profile%20Views-251-blue)
 
 ![Lines of code](https://img.shields.io/badge/From%20Hello%20World%20I%27ve%20Written-13%20Thousand%20lines%20of%20code-blue)
 
@@ -65,5 +65,5 @@ No Activity Tracked This Week
 ![Chart not found](https://raw.githubusercontent.com/chungguo/chungguo/main/charts/bar_graph.png) 
 
 
- Last Updated on 07/01/2022
+ Last Updated on 08/01/2022
 <!--END_SECTION:waka-->

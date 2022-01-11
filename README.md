@@ -10,7 +10,7 @@ My nickname is chungguo
 🐱 &nbsp; I :heart: my :cat Prince( 太子 )
 
 <!--START_SECTION:waka-->
-![Profile Views](http://img.shields.io/badge/Profile%20Views-201-blue)
+![Profile Views](http://img.shields.io/badge/Profile%20Views-104-blue)
 
 ![Lines of code](https://img.shields.io/badge/From%20Hello%20World%20I%27ve%20Written-29%20Thousand%20lines%20of%20code-blue)
 
@@ -53,10 +53,14 @@ Sunday       23 commits     █████░░░░░░░░░░░░�
 
 ```text
 💬 Programming Languages: 
-No Activity Tracked This Week
+TypeScript               37 mins             ███████████████████░░░░░░   76.31% 
+JSON                     6 mins              ███░░░░░░░░░░░░░░░░░░░░░░   14.31% 
+Markdown                 3 mins              █░░░░░░░░░░░░░░░░░░░░░░░░   7.17% 
+Bash                     1 min               ░░░░░░░░░░░░░░░░░░░░░░░░░   2.07% 
+Other                    0 secs              ░░░░░░░░░░░░░░░░░░░░░░░░░   0.06%
 
 💻 Operating System: 
-No Activity Tracked This Week
+Mac                      48 mins             █████████████████████████   100.0%
 
 ```
 
@@ -65,5 +69,5 @@ No Activity Tracked This Week
 ![Chart not found](https://raw.githubusercontent.com/chungguo/chungguo/main/charts/bar_graph.png) 
 
 
- Last Updated on 10/01/2022
+ Last Updated on 11/01/2022
 <!--END_SECTION:waka-->

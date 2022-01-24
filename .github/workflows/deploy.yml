@@ -10,33 +10,14 @@ on:
     types: [closed]
 
 jobs:
-  oracle_instance132:
+  deploy:
     defaults:
       run:
         shell: bash
-    runs-on: [instance132]
-    env:
-      NODE_OPTIONS: --max-old-space-size=1024
-    steps:
-      - name: 切换分支
-        uses: actions/checkout@v2.3.4
-      - name: 安装依赖
-        run: npm install
-      - name: 设置环境变量
-        run: |
-          echo NEXT_PUBLIC_FIREBASE_CONFIG="$FIREBASE_CONFIG" > .env.local
-        shell: bash
-        env:
-          FIREBASE_CONFIG: ${{secrets.FIREBASE_CONFIG}}
-      - name: 构建
-        run: npm run build
-      - name: 重启
-        run: pm2 restart chungguo || pm2 start npm --name chungguo -- run start
-  oracle_instance152:
-    defaults:
-      run:
-        shell: bash
-    runs-on: [instance152]
+    runs-on: ${{ matrix.instance }}
+    strategy:
+      matrix:
+        instance: [instance132, instance152]
     env:
       NODE_OPTIONS: --max-old-space-size=1024
     steps:

@@ -13,7 +13,6 @@ function PostCard(props: Post) {
     <Link as={`/post/${slug}`} href={`/post/[slug]`} passHref>
       <a className="cursor-pointer">
         <section className="border border-gray-100 dark:border-gray-800">
-          <img src={cover} alt={title} className="object-cover w-full bg-gray-200 h-48" />
           <section className="px-6 py-4">
             <i className="block text-sm mb-2 text-gray-500">{tag.join(',')}</i>
             <h3 className="line-clamp-1 text-xl font-semibold dark:text-gray-300">{title}</h3>

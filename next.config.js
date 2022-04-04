@@ -9,7 +9,7 @@ const ContentSecurityPolicy = `
   style-src-elem 'self' 'unsafe-inline' *.googleapis.com;
   font-src 'self' data: fonts.gstatic.com;
   object-src 'self';
-  connect-src 'self' *.google-analytics.com *.googleapis.com;
+  connect-src 'self' *.google-analytics.com *.googleapis.com vitals.vercel-insights.com;
   frame-src 'self' *.google.com *.firebaseapp.com;
 `;
 

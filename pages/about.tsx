@@ -30,8 +30,8 @@ const experience = [{
 
 function AboutPage() {
   return (
-    <article className="min-h-screen">
-      <main className="sm:max-w-2xl mx-auto px-5 pt-10 sm:px-6">
+    <article className="flex-grow">
+      <main className="sm:max-w-2xl mx-auto px-4 py-6">
         <section className="w-20 mb-4 m-auto dark:text-gray-300">
           <Happy />
         </section>

@@ -8,6 +8,10 @@
   }
 }
 
+html, body, #__next {
+  height: 100%;
+}
+
 .dark .markdown {
   color: rgb(209, 213, 219);
 }

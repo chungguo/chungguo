@@ -34,7 +34,7 @@ export default function MyApp({ Component, pageProps, router }) {
   return (
     <>
       <Head asPath={router.asPath} />
-      <article className="flex flex-col">
+      <article className="flex flex-col items-stretch h-full">
         <Header />
         <Component {...pageProps} router={router} />
         <Footer />

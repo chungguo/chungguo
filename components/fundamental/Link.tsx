@@ -8,7 +8,7 @@ interface Props {
 export default function CustomLink(props: Props) {
   const { href, children } = props;
   return (
-    <Link passHref href={href}>
+    <Link passHref href={href} shallow>
       <span className="text-black dark:text-gray-300 font-semibold bg-underline-blue cursor-pointer">
         {children}
       </span>

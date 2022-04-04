@@ -6,21 +6,20 @@ interface PostCards {
 }
 
 function PostCard(props: Post) {
-  const { slug, meta } = props;
-  const { title, date, cover, tag = [] } = meta;
+  const { slug, meta, content } = props;
+  const { title, date, tag = [] } = meta;
 
   return (
-    <Link as={`/post/${slug}`} href={`/post/[slug]`} passHref>
-      <a className="cursor-pointer">
-        <section className="border border-gray-100 dark:border-gray-800">
-          <section className="px-6 py-4">
-            <i className="block text-sm mb-2 text-gray-500">{tag.join(',')}</i>
-            <h3 className="line-clamp-1 text-xl font-semibold dark:text-gray-300">{title}</h3>
-            <time dateTime={date} className="block mt-1 text-sm text-gray-500">{date}</time>
-          </section>
-        </section >
-      </a>
-    </Link>
+    <section className="py-2">
+      <Link as={`/post/${slug}`} href={`/post/[slug]`} passHref shallow>
+        <h2 className="line-clamp-1 text-2xl font-semibold dark:text-gray-300 cursor-pointer">{title}</h2>
+      </Link>
+      <section className='flex justify-between'>
+        <i className="block text-sm mb-2 text-gray-500">{tag.map(t => `#${t}`).join(',')}</i>
+        <time dateTime={date} className="block mt-1 text-sm text-gray-500">{date}</time>
+      </section>
+      <p className='text-gray-500 line-clamp-2'>{content}</p>
+    </section>
   )
 }
 
@@ -32,7 +31,7 @@ export default function PostCards(props: PostCards) {
   }
 
   return (
-    <section className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10 my-12">
+    <ul className="flex flex-col gap-6 overflow-y-auto w-full my-6">
       {
         posts.map(post => {
           const { slug } = post;
@@ -41,6 +40,6 @@ export default function PostCards(props: PostCards) {
           )
         })
       }
-    </section>
+    </ul>
   );
 }

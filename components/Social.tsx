@@ -10,7 +10,7 @@ interface Props {
 
 const Blog = () => {
   return (
-    <Link href="/blog" passHref>
+    <Link href="/blog" passHref shallow>
       <a className='transform hover:scale-125 block w-6 h-6 hover:text-blue-600 dark:hover:text-gray-50'>
         <BlogSVG />
       </a>
@@ -20,7 +20,7 @@ const Blog = () => {
 
 const Instagram = () => {
   return (
-    <Link href="https://www.instagram.com/chungguo.gc/" passHref>
+    <Link href="https://www.instagram.com/chungguo.gc/" passHref shallow>
       <a target="_blank" rel="noreferrer" className='transform hover:scale-125 block w-6 h-6 hover:text-blue-600 dark:hover:text-gray-50'>
         <InstagramSVG />
       </a>
@@ -30,7 +30,7 @@ const Instagram = () => {
 
 const Twitter = () => {
   return (
-    <Link href="https://twitter.com/chungguo_me/" passHref>
+    <Link href="https://twitter.com/chungguo_me/" passHref shallow>
       <a target="_blank" rel="noreferrer" className='transform hover:scale-125 block w-6 h-6 hover:text-blue-600 dark:hover:text-gray-50'>
         <TwitterSVG />
       </a>
@@ -40,7 +40,7 @@ const Twitter = () => {
 
 const Github = () => {
   return (
-    <Link href="https://github.com/chungguo/chungguo.github.io" passHref>
+    <Link href="https://github.com/chungguo/chungguo.github.io" passHref shallow>
       <a target="_blank" rel="noreferrer" className='transform hover:scale-125 block w-6 h-6 hover:text-blue-600 dark:hover:text-gray-50'>
         <GithubSVG />
       </a>

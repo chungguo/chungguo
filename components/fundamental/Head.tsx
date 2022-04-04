@@ -1,6 +1,5 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
-import { GA_TRACKING_ID } from 'chungguo/shared/constants';
 
 interface Props {
   asPath?: string,
@@ -34,12 +33,6 @@ const MyHead: NextPage<Props> = ({ asPath = 'https://chungguo.me' }) => {
       <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
       <link rel="manifest" href="/site.webmanifest" />
       <link rel="alternate" type="application/rss+xml" title="RSS feed for blog posts" href="https://chungguo.me/rss.xml" />
-      <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '${GA_TRACKING_ID}', {page_path: window.location.pathname,});gtag('set', {'user_id': 'USER_ID'});`,
-        }}
-      />
     </Head>
   )
 };

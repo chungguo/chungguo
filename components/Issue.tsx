@@ -1,6 +1,7 @@
 import Link from 'chungguo/components/fundamental/Link';
+import { Issue } from 'chungguo/types/post';
 
-export default function Issue({ issue }) {
+export default function Issue({ issue }: { issue: string }) {
   return (
     <p className="flex items-center my-6 justify-center text-gray-400 text-sm">
       <svg viewBox="-2 -2 20 20" version="1.1" fill="currentColor" width="16" height="16" aria-hidden="true">

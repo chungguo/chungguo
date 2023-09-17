@@ -1,8 +1,10 @@
 import { useRouter } from 'next/router';
 import PostPage from 'chungguo/components/PostPage';
 import ErrorPage from 'chungguo/components/fundamental/ErrorPage';
+import { GetStaticPropsContext } from 'next';
 
 import { getAllPosts, getPostBySlug, writeIssueAsMarkdownFile } from 'chungguo/lib/post';
+import { Post } from 'chungguo/types/post';
 
 export async function getStaticPaths() {
   const posts = await getAllPosts();
@@ -17,9 +19,10 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps({ params }) {
+
+export async function getStaticProps({ params }: GetStaticPropsContext<{ slug: string }>) {
   await writeIssueAsMarkdownFile();
-  const post = getPostBySlug(params.slug)
+  const post = getPostBySlug(params!.slug)
   return {
     props: {
       post
@@ -27,7 +30,7 @@ export async function getStaticProps({ params }) {
   }
 }
 
-export default function Post({ post }) {
+export default function Post({ post }: { post: Post }) {
   const router = useRouter()
 
   if (!router.isFallback && !post?.slug) {

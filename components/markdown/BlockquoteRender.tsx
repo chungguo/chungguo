@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 
-export default function BlockquoteRender(props) {
+export default function BlockquoteRender(props: PropsWithChildren<Record<string, any>>) {
   const { node, children, ...other } = props;
 
   const childrenWithProps = React.Children.map(children, child => {
     if (React.isValidElement(child)) {
       return React.cloneElement(
-        child as React.ReactElement<any>, 
-        { 
+        child as React.ReactElement<any>,
+        {
           className: 'ml-4',
         });
     }

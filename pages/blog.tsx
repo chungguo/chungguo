@@ -1,5 +1,6 @@
 import { getAllPosts } from 'chungguo/lib/post';
 import PostCards from 'chungguo/components/PostCards';
+import { Post } from 'chungguo/types/post';
 
 export async function getStaticProps() {
   const posts = await getAllPosts();
@@ -10,7 +11,7 @@ export async function getStaticProps() {
   }
 }
 
-export default function BlogIndex(props) {
+export default function BlogIndex(props: { posts: Post[] }) {
   const { posts } = props;
 
   return (

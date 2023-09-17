@@ -51,7 +51,7 @@ const Github = () => {
 export default function Social(props: Props) {
   const { styleNames = '', exclude = [] } = props;
 
-  const Icons = {
+  const Icons: Record<string, React.ReactElement> = {
     'blog': <Blog key="blog" />,
     'twitter': <Twitter key="twitter" />,
     'instagram': <Instagram key="instagram" />,

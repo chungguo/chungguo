@@ -1,7 +1,8 @@
 import Image from 'rc-image';
+import { PropsWithChildren } from 'react';
 import 'rc-image/assets/index.css';
 
-export default function ImageRender(props) {
+export default function ImageRender(props: PropsWithChildren<Record<string, any>>) {
   return <Image
     preview={{
       icons: {

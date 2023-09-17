@@ -14,6 +14,7 @@ NProgress.configure({
 const processStart = () => NProgress.start();
 const processDone = () => NProgress.done();
 
+// @ts-ignore 
 export default function MyApp({ Component, pageProps, router }) {
   Router.events.on('routeChangeStart', processStart);
   Router.events.on('routeChangeComplete', processDone);

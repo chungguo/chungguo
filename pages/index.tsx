@@ -1,7 +1,7 @@
 import Hero from 'chungguo/public/assets/common/hero.svg';
 import { SELF_BREIF } from 'chungguo/shared/constants';
 
-function IndexPage() {
+export default function Index() {
   return (
     <main className="flex flex-grow flex-col justify-center">
       <section className="max-w-6xl md:max-w-3xl lg:max-w-5xl mx-auto px-8 sm:px-6 dark:text-white">
@@ -19,8 +19,4 @@ function IndexPage() {
       </section>
     </main>
   );
-}
-
-export default function Index() {
-  return <IndexPage />;
 }

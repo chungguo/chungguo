@@ -28,7 +28,7 @@ const experience = [{
   logo: <Alibaba />
 }];
 
-function AboutPage() {
+export default function About() {
   return (
     <article className="flex-grow">
       <main className="sm:max-w-2xl mx-auto px-4 py-6">
@@ -69,9 +69,5 @@ function AboutPage() {
         </section>
       </main>
     </article>
-  )
-}
-
-export default function About() {
-  return <AboutPage />;
+  );
 }

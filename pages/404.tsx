@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Clumsy from 'chungguo/public/assets/common/clumsy.svg';
 
-function NotFound404() {
+export default function NotFound() {
   return (
     <article className="flex flex-grow flex-col justify-center items-center px-10">
       <section className="max-w-1/2 w-80 dark:text-white" >
@@ -14,9 +14,5 @@ function NotFound404() {
         <a className="px-4 py-2 rounded-md text-white bg-blue-500 hover:bg-blue-600 mt-10">Go Home</a>
       </Link>
     </article>
-  )
+  );
 }
-
-export default function NotFound() {
-  return <NotFound404 />;
-};

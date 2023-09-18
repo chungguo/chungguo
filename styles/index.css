@@ -12,16 +12,8 @@ html, body, #__next {
   height: 100%;
 }
 
-.dark .markdown {
-  color: rgb(209, 213, 219);
-}
-
 img {
   display: inline-block;
-}
-
-.rc-image-preview-operations-operation {
-  list-style: none;
 }
 
 /* Make clicks pass-through */

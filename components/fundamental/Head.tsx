@@ -34,7 +34,7 @@ const MyHead: NextPage<Props> = ({ asPath = 'https://chungguo.me' }) => {
       <link rel="manifest" href="/site.webmanifest" />
       <link rel="alternate" type="application/rss+xml" title="RSS feed for blog posts" href="https://chungguo.me/rss.xml" />
     </Head>
-  )
+  );
 };
 
 export default MyHead;

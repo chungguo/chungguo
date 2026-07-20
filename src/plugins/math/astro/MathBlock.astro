@@ -10,7 +10,7 @@ interface Props {
 }
 
 const { node } = Astro.props;
-const { formula = "", display = true } = node;
+const { formula = "", display = false } = node;
 
 let html = "";
 let error = "";
@@ -26,9 +26,18 @@ try {
 }
 ---
 
-<figure class:list={["math-block", { "math-block--inline": !display }]}>
-	{error
-		? <pre class="math-error">{error}</pre>
-		: <Fragment set:html={html} />
-	}
-</figure>
+{display ? (
+	<figure class="math-block math-block--display">
+		{error
+			? <pre class="math-error">{error}</pre>
+			: <Fragment set:html={html} />
+		}
+	</figure>
+) : (
+	<span class="math-block math-block--inline">
+		{error
+			? <code class="math-error">{error}</code>
+			: <Fragment set:html={html} />
+		}
+	</span>
+)}

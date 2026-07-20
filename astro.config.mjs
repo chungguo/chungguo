@@ -3,6 +3,7 @@ import react from "@astrojs/react";
 import { d1, r2, kvCache } from "@emdash-cms/cloudflare";
 import { formsPlugin } from "@emdash-cms/plugin-forms";
 import webhookNotifier from "@emdash-cms/plugin-webhook-notifier";
+import { mathPlugin } from "./src/plugins/math/index.ts";
 import { defineConfig, fontProviders } from "astro/config";
 import emdash from "emdash/astro";
 
@@ -18,7 +19,7 @@ export default defineConfig({
 		emdash({
 			database: d1({ binding: "DB", session: "auto" }),
 			storage: r2({ binding: "MEDIA" }),
-			plugins: [webhookNotifier, formsPlugin()],
+			plugins: [webhookNotifier, formsPlugin(), mathPlugin()],
 			objectCache: kvCache({ binding: "CACHE" }),
 		}),
 	],

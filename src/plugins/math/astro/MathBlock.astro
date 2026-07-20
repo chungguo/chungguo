@@ -1,0 +1,34 @@
+---
+import katex from "katex";
+import "katex/dist/katex.min.css";
+
+interface Props {
+	node: {
+		formula?: string;
+		display?: boolean;
+	};
+}
+
+const { node } = Astro.props;
+const { formula = "", display = true } = node;
+
+let html = "";
+let error = "";
+
+try {
+	html = katex.renderToString(formula, {
+		displayMode: display,
+		throwOnError: false,
+		output: "html",
+	});
+} catch (e) {
+	error = String(e);
+}
+---
+
+<figure class:list={["math-block", { "math-block--inline": !display }]}>
+	{error
+		? <pre class="math-error">{error}</pre>
+		: <Fragment set:html={html} />
+	}
+</figure>

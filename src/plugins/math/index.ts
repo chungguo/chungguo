@@ -1,11 +1,12 @@
+import { fileURLToPath } from "node:url";
 import { definePlugin, type PluginDescriptor } from "emdash";
 
 export function mathPlugin(): PluginDescriptor {
 	return {
 		id: "katex-math",
 		version: "1.0.0",
-		entrypoint: "./src/plugins/math/index.ts",
-		componentsEntry: "./src/plugins/math/astro/index.ts",
+		entrypoint: fileURLToPath(new URL("./index.ts", import.meta.url)),
+		componentsEntry: fileURLToPath(new URL("./astro/index.ts", import.meta.url)),
 	};
 }
 

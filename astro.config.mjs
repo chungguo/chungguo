@@ -17,6 +17,7 @@ export default defineConfig({
 	integrations: [
 		react(),
 		emdash({
+			siteUrl: "https://chungguo.me",
 			database: d1({ binding: "DB", session: "auto" }),
 			storage: r2({ binding: "MEDIA" }),
 			plugins: [webhookNotifier, formsPlugin(), mathPlugin()],

@@ -8,6 +8,7 @@ import { defineConfig, fontProviders } from "astro/config";
 import emdash from "emdash/astro";
 
 export default defineConfig({
+	site: 'https://chungguo.me',
 	output: "server",
 	adapter: cloudflare(),
 	image: {

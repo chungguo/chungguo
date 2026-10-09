@@ -1,0 +1,62 @@
+{
+  "target": {
+    "emdashVersion": "1.2.0",
+    "migrationSetFingerprint": "6d2ee569f432f98c22f03cba75f8868d229d5ec9a8663104dfef45811e581f1a",
+    "total": 90
+  },
+  "remote": {
+    "d1Database": "chungguo-site",
+    "d1DatabaseId": "6944fb57-4304-4bb1-b08b-4dab2ef9edb5",
+    "cloudflareAccountId": "ac0eaec4a9cc8cf3783c15cd1ad0defe",
+    "appliedCount": 53,
+    "lastApplied": "054_media_upload_attempts",
+    "pendingCount": 37,
+    "firstPending": "055_content_translation_group_locale_index",
+    "lastPending": "091_redirect_artifacts",
+    "pending": [
+      "055_content_translation_group_locale_index",
+      "056_taxonomy_term_sort_order",
+      "057_collection_hidden",
+      "058_collection_sort_order",
+      "059_revision_prune_queue",
+      "060_collection_admin_config",
+      "061_media_usage_cleanup",
+      "062_media_usage_cleanup_fence",
+      "063_media_usage_incremental_work",
+      "064_fts_plain_text",
+      "065_media_usage_collection_deletion",
+      "066_media_usage_reconciliation",
+      "067_indexed_content_fields",
+      "068_content_taxonomy_entry_groups",
+      "069_collection_title_date_fields",
+      "070_collection_routable",
+      "071_restore_content_bylines_table",
+      "072_media_folders",
+      "073_media_focal_point",
+      "074_content_deleted_scheduled_index",
+      "075_entry_edit_locks",
+      "076_collection_nav_group",
+      "077_plugin_storage_revisions",
+      "078_menu_item_translation_groups",
+      "079_datetime_normalization",
+      "080_content_translation_locale_unique",
+      "081_redirect_write_guards",
+      "082_taxonomy_translation_locale_unique",
+      "083_block_types",
+      "084_site_transfer",
+      "085_taxonomy_def_groups",
+      "086_relations_structural",
+      "087_reference_field_relations",
+      "088_cron_oneshot_utc",
+      "089_auto_seed_completion",
+      "090_redirect_enable_loop_guard",
+      "091_redirect_artifacts"
+    ]
+  },
+  "timeTravelBookmark": "00000571-00000008-000050ff-2f1a4e7215aab1bcc096e771a64456d1",
+  "media": {
+    "bucket": "chungguo-media",
+    "objects": 3,
+    "size": "655 kB"
+  }
+}
